@@ -8,6 +8,8 @@ First published October 29, 2026, from `codex/publish`, with `app.R` as the prim
 
 ## Live-feed access from the hosted app
 
+The hosted app now supports **Shared laptop snapshots**, published independently of app code. See [the collector guide](collector.md) for startup, stop, Kentucky entry, and failure handling. Use this source to obtain all nine automatic watchlist districts through the laptop's network connection.
+
 On October 29, the same `fetch_feed()` code succeeded for Virginia, North Carolina, and Ohio on the local computer. On Posit, North Carolina succeeded; Virginia and Ohio returned HTTP 403. The hosted app reports those providers as unavailable and retains a previous successful snapshot if one exists. The differing behavior is consistent with provider filtering of hosting networks or automated clients; the specific filtering rule has not been established.
 
 To fetch from a computer that can reach the feeds:
@@ -32,7 +34,7 @@ A GET with `Origin: https://bleveck.github.io` returned these headers on October
 | North Carolina | No `Access-Control-Allow-Origin` — direct cross-origin reading would be blocked |
 | Ohio | `Access-Control-Expose-Headers: Request-Context`, but no `Access-Control-Allow-Origin` — insufficient for direct cross-origin reading |
 
-Browser requests could change the provider's network/client filtering outcome, but remain subject to browser CORS rules. A static teaching version can use bundled replays and uploaded CSVs. A live version can use published snapshots on the same static site or a small permitted feed service. No recurring fetching or Shinylive deployment is configured.
+Browser requests could change the provider's network/client filtering outcome, but remain subject to browser CORS rules. A static teaching version can use bundled replays and uploaded CSVs. The laptop collector publishes a small public GitHub snapshot with a reader designed for both ordinary R and webR's basic GET support. No Shinylive deployment is configured. The collector only repeats requests when explicitly started with `--watch`; no scheduler is installed.
 
 ## First publication
 

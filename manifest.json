@@ -1486,7 +1486,7 @@
   },
   "files": {
     "app.R": {
-      "checksum": "189508fdb45be52db9d2452c8f853052"
+      "checksum": "2d4116c164ea2c2b11216b9018a92165"
     },
     "data/ca13_2024_returns.csv": {
       "checksum": "2754cbab1aa35dd239a61f063e4bef9f"
@@ -1524,6 +1524,9 @@
     "R/bayes.R": {
       "checksum": "4d968f23e15271cb549b590a7c64a151"
     },
+    "R/collector.R": {
+      "checksum": "77292195eb57e308cf9723d2a0951d73"
+    },
     "R/feeds.R": {
       "checksum": "e3d3d9503d19e8595b1e2f92bc4ff8bf"
     },
@@ -1540,7 +1543,7 @@
       "checksum": "014e23e4953696954b5122525b2e7c17"
     },
     "www/style.css": {
-      "checksum": "7dd9f9e0da65d6f5b817df1019c599ea"
+      "checksum": "d114132bcff9cb5411bef6dc52f896fa"
     }
   },
   "users": null

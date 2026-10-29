@@ -20,6 +20,7 @@ h1 { font-size: clamp(28px, 3.4vw, 46px); letter-spacing: -.045em; font-weight: 
 .mode-banner strong { letter-spacing: .07em; }
 .mode-banner span { color: #52677b; }
 .mode-banner.live { background: #e5f0ed; }
+.mode-banner.collector { background: #e5f0ed; }
 .mode-banner.csv { background: #f0eaf4; }
 .mode-banner pre { width: 100%; white-space: pre-wrap; font-size: 11px; margin: 5px 0 0; color: #36544c; }
 .error-banner { background: #ffe5df; color: #853f34; border-radius: 8px; padding: 12px; margin-bottom: 15px; }

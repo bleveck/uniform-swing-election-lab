@@ -3,6 +3,7 @@ library(ggplot2)
 source("R/model.R")
 source("R/bayes.R")
 source("R/feeds.R")
+source("R/collector.R")
 source("R/plots.R")
 source("R/historical_returns.R", local = TRUE)
 source("R/introduction.R", local = TRUE)
@@ -43,7 +44,7 @@ ui <- fluidPage(
     tabPanel("Election-night lab", value = "lab", tags$div(class = "app-grid",
     tags$aside(class = "controls panel-card",
       tags$h2("Run the experiment"),
-      radioButtons("mode", "Results source", c("Synthetic replay" = "replay", "Official live feeds" = "live", "Upload a CSV" = "csv")),
+      radioButtons("mode", "Results source", c("Synthetic replay" = "replay", "Shared laptop snapshots" = "collector", "Official live feeds" = "live", "Upload a CSV" = "csv")),
       conditionalPanel("input.mode == 'replay'",
         tags$p(class = "small-note", "Invented 2026 totals generated on the selected reference map. The early batches are deliberately uneven."),
         sliderInput("step", "Replay snapshot", min = 0, max = 12, value = 6, step = 1,
@@ -61,6 +62,11 @@ ui <- fluidPage(
         checkboxInput("auto", "Refresh every 5 minutes", FALSE),
         tags$p(class = "small-note", "VA JSON · NC ZIP · OH XML. Before Nov 3 at 6 p.m. ET, feed totals are excluded as preparation data. KY uses the CSV fallback."),
         fileInput("manual_live", "Optional KY-06 snapshot (CSV)", accept = ".csv")),
+      conditionalPanel("input.mode == 'collector'",
+        actionButton("refresh_collector", "Load latest shared snapshot", class = "btn-primary"),
+        checkboxInput("auto_collector", "Check for updates every minute", TRUE),
+        tags$p(class = "small-note", "One instructor laptop collects VA, NC, and OH every five minutes. Everyone reads the same shared file. KY-06 appears when the instructor supplies a manual entry."),
+        tags$p(class = "small-note", "The laptop must keep running. Fetch failures retain previous totals; data older than 15 minutes are labeled STALE. Preparation/test data remain excluded.")),
       conditionalPanel("input.mode == 'csv'", fileInput("upload", "Cumulative district totals (.csv)", accept = ".csv"),
         downloadButton("template", "Download CSV template")),
       tags$hr(),
@@ -130,6 +136,9 @@ server <- function(input, output, session) {
   uploaded <- reactiveVal(empty_results())
   manual <- reactiveVal(empty_results())
   manual_error <- reactiveVal(NULL)
+  shared_snapshot <- reactiveVal(NULL)
+  shared_error <- reactiveVal(NULL)
+  shared_now <- reactive({invalidateLater(60000, session); Sys.time()})
   introduction_server(input, output, session, historical_districts, history, historical_prior, replay_path, ca13_returns, pres_bundle)
   observeEvent(input$upload, {
     uploaded(empty_results()); upload_error(NULL)
@@ -167,6 +176,22 @@ server <- function(input, output, session) {
     live_data(current); statuses(paste(messages, collapse = "\n"))
   }
   observeEvent(input$refresh, refresh_live())
+  refresh_shared <- function() {
+    tryCatch({
+      snapshot <- fetch_collector_snapshot()
+      shared_snapshot(snapshot)
+      shared_error(NULL)
+    }, error = function(e) {
+      shared_error("Could not load the published snapshot; retry or check that the laptop is publishing.")
+    })
+  }
+  observeEvent(input$refresh_collector, refresh_shared())
+  observe({
+    if (identical(input$mode, "collector")) {
+      if (isTRUE(input$auto_collector)) invalidateLater(60000, session)
+      isolate(refresh_shared())
+    }
+  })
   observe({
     if (isTRUE(input$auto) && identical(input$mode, "live")) {
       invalidateLater(300000, session)
@@ -179,7 +204,8 @@ server <- function(input, output, session) {
   active_prior <- reactive(if ((input$baseline %||% "president") == "president") pres_prior else historical_prior)
   results <- reactive(switch(input$mode,
     replay = { r <- if ((input$baseline %||% "president") == "president") pres_replay else replay; r[r$step == input$step, names(empty_results())] },
-    live = rbind(live_data(), manual()), csv = uploaded()))
+    live = rbind(live_data(), manual()),
+    collector = {x <- shared_snapshot(); if (is.null(x)) empty_results() else x$results}, csv = uploaded()))
   estimate <- reactive({
     threshold <- input$min_votes
     if (is.null(threshold) || !is.finite(threshold) || threshold < 1) threshold <- 1000
@@ -204,9 +230,10 @@ server <- function(input, output, session) {
     "Current 2026 boundaries. Compares House returns with Harris’s 2024 share; this is a cross-office proxy."))
   output$mode_banner <- renderUI(tags$div(class = paste("mode-banner", input$mode),
     tags$strong(switch(input$mode, replay = paste("SYNTHETIC REPLAY · SNAPSHOT", input$step, "OF 12"),
-      live = "OFFICIAL FEEDS · UNOFFICIAL RETURNS", csv = "USER-SUPPLIED CSV · CUMULATIVE TOTALS")),
+      live = "OFFICIAL FEEDS · UNOFFICIAL RETURNS", collector = "SHARED LAPTOP SNAPSHOT · UNOFFICIAL RETURNS", csv = "USER-SUPPLIED CSV · CUMULATIVE TOTALS")),
     tags$span(if (input$baseline == "house") "2024-map thought experiment" else "2026-map presidential proxy"),
-    if (input$mode == "live") tags$pre(statuses())))
+    if (input$mode == "live") tags$pre(statuses()),
+    if (input$mode == "collector") tags$pre(collector_status_text(shared_snapshot(), shared_now(), shared_error()))))
   output$problem <- renderUI({
     error <- if (input$mode == "csv") upload_error() else if (input$mode == "live") manual_error() else NULL
     if (!is.null(error)) tags$div(class = "error-banner", paste("CSV not loaded:", error))

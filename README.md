@@ -50,6 +50,18 @@ Only House races enter the estimator. The Senate and governor contests in the re
 
 ## Live mode
 
+For the hosted version, use **Shared laptop snapshots**. The [laptop collector](docs/collector.md) fetches VA, NC, and OH once every five minutes and publishes one public snapshot for everyone. The app checks that file every minute, displays source/collection clocks, and flags stale data. KY-06 can be supplied to the collector as a manual CSV. It runs only when the instructor starts it; no scheduler or background service is installed.
+
+```sh
+Rscript scripts/collect_results.R --once --publish
+# On this Mac, keep collecting until Ctrl+C:
+caffeinate -i Rscript scripts/collect_results.R --watch --publish
+```
+
+Data updates go to the separate `codex/snapshots` branch and do not trigger app deployment. The shared-file reader uses a basic GET suitable for a future Shinylive version. Historical charts and synthetic replay remain available without a running collector.
+
+**Direct official-feed mode:**
+
 Select **Official live feeds**, then **Fetch official snapshots**. Automatic refresh is optional and runs every five minutes while live mode is selected. Fetches are per Shiny session; use one classroom session rather than giving every student an automatically polling session.
 
 As checked **October 27, 2026**, Virginia and North Carolina publish zero-vote preparation files, Ohio explicitly marks its XML as mock data, and Kentucky's public reporting page is under maintenance. Before **November 3 at 6 p.m. Eastern**, the live-fetch layer marks all provider snapshots as preparation data. It also honors Ohio's provider test flag after that time. No real 2026 general-election returns are available yet.
@@ -154,6 +166,8 @@ See [the full Bayesian derivation and data audit](docs/bayesian.md).
 | `R/introduction.R` | Guided introduction, historical plots, reporting-order example, and replay handoff |
 | `R/historical_returns.R` | Validation and replay of CA-13’s recorded 2024 count |
 | `R/feeds.R` | Validation and three public-feed parsers |
+| `R/collector.R` | Shared laptop snapshot reader, validation, and freshness labels |
+| `scripts/collect_results.R` | Explicit one-shot or foreground laptop collection and publication |
 | `scripts/demo.R` | Minimal base-R teaching example |
 | `data/house_2024.csv` | Official House baseline |
 | `data/president_2024_current_map.csv` | Presidential baseline on 2026 lines |
@@ -189,9 +203,9 @@ Rebuilding CA-13 requires `readxl` and the saved `data/raw/ca13_2024_cvf.xlsx` w
 
 Source: [bleveck/uniform-swing-election-lab](https://github.com/bleveck/uniform-swing-election-lab). [Automated checks](https://github.com/bleveck/uniform-swing-election-lab/actions) validate each update before advancing the publishing branch.
 
-Published to Connect Cloud on October 29, 2026. The public introduction, CA-13 replay, both Bayesian references, and CSV download were checked in a fresh browser session. Live requests from Posit fetched North Carolina successfully, but Virginia and Ohio returned HTTP 403; the same feed code succeeded locally for all three states. Until provider access from Posit is resolved, use synthetic replay, CSV upload, or run locally. See [the deployment guide](docs/deployment.md) for the local-fetch fallback and browser-hosting considerations.
+Published to Connect Cloud on October 29, 2026. The public introduction, CA-13 replay, both Bayesian references, and CSV download were checked in a fresh browser session. Direct requests from Posit fetched North Carolina successfully, but Virginia and Ohio returned HTTP 403; the same feed code succeeded locally for all three states. **Shared laptop snapshots** provides the common data path for the hosted app. See [the collector guide](docs/collector.md) and [deployment guide](docs/deployment.md).
 
-The publishing setup uses a public GitHub repository, `manifest.json`, and a checked publishing branch. The manifest pins R 4.5.2 and the 47 runtime packages, and includes only the 19 files needed to run the app. Raw source archives, rebuild scripts, tests, and documentation remain available in GitHub.
+The publishing setup uses a public GitHub repository, `manifest.json`, and a checked publishing branch. The manifest pins R 4.5.2 and the 47 runtime packages, and includes only the 20 files needed to run the app. Raw source archives, rebuild scripts, tests, and documentation remain available in GitHub.
 
 On every push to `main`, GitHub Actions installs the pinned runtime packages, checks the deployment bundle, and runs the model, data, parser, and Shiny tests. Only a successful run advances **`codex/publish`**, the branch Connect Cloud should watch. Pull requests run the same checks without publishing. No Posit API key is needed in GitHub.
 
