@@ -185,6 +185,8 @@ Rebuilding CA-13 requires `readxl` and the saved `data/raw/ca13_2024_cvf.xlsx` w
 
 ## GitHub → Posit Connect Cloud
 
+Source: [bleveck/uniform-swing-election-lab](https://github.com/bleveck/uniform-swing-election-lab). [Automated checks](https://github.com/bleveck/uniform-swing-election-lab/actions) validate each update before advancing the publishing branch.
+
 The publishing setup uses a public GitHub repository, `manifest.json`, and a checked publishing branch. The manifest pins R 4.5.2 and the 47 runtime packages, and includes only the 19 files needed to run the app. Raw source archives, rebuild scripts, tests, and documentation remain available in GitHub.
 
 On every push to `main`, GitHub Actions installs the pinned runtime packages, checks the deployment bundle, and runs the model, data, parser, and Shiny tests. Only a successful run advances **`codex/publish`**, the branch Connect Cloud should watch. Pull requests run the same checks without publishing. No Posit API key is needed in GitHub.

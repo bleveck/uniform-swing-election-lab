@@ -1,5 +1,7 @@
 # Publishing through GitHub and Posit Connect Cloud
 
+Repository: [bleveck/uniform-swing-election-lab](https://github.com/bleveck/uniform-swing-election-lab). The initial Linux checks passed and created `codex/publish` on October 29, 2026.
+
 ## First publication
 
 1. Sign in at [Posit Connect Cloud](https://connect.posit.cloud/). The account used to sign in to Posit can be separate from the GitHub account containing the code. If GitHub sign-in fails, an existing Posit email or Google login is another option; use the identity associated with your Posit account.
