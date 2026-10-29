@@ -2,7 +2,7 @@
 
 Repository: [bleveck/uniform-swing-election-lab](https://github.com/bleveck/uniform-swing-election-lab). The initial Linux checks passed and created `codex/publish` on October 29, 2026.
 
-[Public app](https://01a18994-b6cc-bced-bec2-7a672ba20d82.share.connect.posit.cloud/) · [Posit content administration](https://connect.posit.cloud/bradleveck/content/01a18994-b6cc-bced-bec2-7a672ba20d82)
+[Public app](https://bradleveck-election-night-lab.share.connect.posit.cloud/) · [Posit content administration](https://connect.posit.cloud/bradleveck/content/01a18994-b6cc-bced-bec2-7a672ba20d82)
 
 First published October 29, 2026, from `codex/publish`, with `app.R` as the primary file and automatic publication on push enabled. The GitHub App installation is restricted to this repository, with read access to code and metadata. Posit uses the Google-authenticated account. The public introduction, charts, actual CA-13 replay, both Bayesian reference options, and ten-row calculation CSV download were verified in a fresh browser session.
 
@@ -20,21 +20,15 @@ Rscript scripts/fetch_live.R
 
 This writes one cumulative `data/live/snapshot-*.csv` file. In the hosted app choose **Upload a CSV** and upload that file. Add a KY-06 row separately if desired; it has no automatic connector. Later snapshots replace the earlier totals. Pre-election/test flags are retained, so preparation files remain excluded.
 
-## Shinylive feasibility
+## Browser-only version on GitHub Pages
 
-The bundled historical charts, replay, and Normal updating calculations are candidates for a static [Shinylive export](https://posit-dev.github.io/r-shinylive/), subject to testing their WebAssembly package versions, file inputs/downloads, and browser performance. A browser version has not yet been built or tested.
+The [Shinylive app](https://bleveck.github.io/uniform-swing-election-lab/) runs the same calculations and historical charts in each student's browser. It reads the same public laptop snapshot as Posit, with no direct state requests from the browser. See [the Shinylive guide](shinylive.md) for the build, package versions, data path, and limitations.
 
-The current downloader uses `httr2`. [webR's networking documentation](https://docs.r-wasm.org/webr/latest/networking.html) says `curl`/`httr2` require a WebSocket proxy, while the patched `download.file()` supports simple browser GET requests when the source allows cross-origin access. The feed downloader would need adapting for a fully static deployment.
+The source workflow validates the R app, builds the static site, and deploys it through GitHub Pages. Snapshot publications remain on `codex/snapshots` and do not trigger either deployment.
 
-A GET with `Origin: https://bleveck.github.io` returned these headers on October 29:
+## Readable Posit URL
 
-| Feed | Cross-origin response |
-|---|---|
-| Virginia | `Access-Control-Allow-Origin: *` — promising for direct browser requests |
-| North Carolina | No `Access-Control-Allow-Origin` — direct cross-origin reading would be blocked |
-| Ohio | `Access-Control-Expose-Headers: Request-Context`, but no `Access-Control-Allow-Origin` — insufficient for direct cross-origin reading |
-
-Browser requests could change the provider's network/client filtering outcome, but remain subject to browser CORS rules. A static teaching version can use bundled replays and uploaded CSVs. The laptop collector publishes a small public GitHub snapshot with a reader designed for both ordinary R and webR's basic GET support. No Shinylive deployment is configured. The collector only repeats requests when explicitly started with `--watch`; no scheduler is installed.
+The configured alias is [bradleveck-election-night-lab.share.connect.posit.cloud](https://bradleveck-election-night-lab.share.connect.posit.cloud/). In content **Settings → URL**, **Customize your URL** is enabled with custom name `election-night-lab`. The original content-ID URL remains available. Connect Cloud prefixes aliases with the account name; a domain you own requires a plan with custom-domain support. [Posit documents these URL settings](https://docs.posit.co/connect-cloud/user/manage/content_settings.html).
 
 ## First publication
 

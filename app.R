@@ -28,6 +28,10 @@ pct <- function(x) ifelse(is.finite(x), sprintf("%.1f%%", 100 * x), "—")
 panel <- function(title, subtitle = NULL, ...) tags$section(class = "panel-card", tags$h3(title),
   if (!is.null(subtitle)) tags$p(class = "panel-subtitle", subtitle), ...)
 
+browser_runtime <- isTRUE(getOption("election_lab.browser", FALSE))
+results_choices <- c("Synthetic replay" = "replay", "Shared laptop snapshots" = "collector",
+  if (!browser_runtime) c("Official live feeds" = "live"), "Upload a CSV" = "csv")
+
 ui <- fluidPage(
   title = "Election-night lab",
   theme = bslib::bs_theme(version = 5, bg = "#f3f5f7", fg = "#172f46", primary = "#2165ad",
@@ -44,7 +48,8 @@ ui <- fluidPage(
     tabPanel("Election-night lab", value = "lab", tags$div(class = "app-grid",
     tags$aside(class = "controls panel-card",
       tags$h2("Run the experiment"),
-      radioButtons("mode", "Results source", c("Synthetic replay" = "replay", "Shared laptop snapshots" = "collector", "Official live feeds" = "live", "Upload a CSV" = "csv")),
+      radioButtons("mode", "Results source", results_choices),
+      if (browser_runtime) tags$p(class = "small-note", "Runs in your browser. Use Shared laptop snapshots for incoming returns; the instructor laptop fetches the state feeds."),
       conditionalPanel("input.mode == 'replay'",
         tags$p(class = "small-note", "Invented 2026 totals generated on the selected reference map. The early batches are deliberately uneven."),
         sliderInput("step", "Replay snapshot", min = 0, max = 12, value = 6, step = 1,
@@ -157,6 +162,7 @@ server <- function(input, output, session) {
   }, ignoreNULL = FALSE)
 
   refresh_live <- function() {
+    if (browser_runtime) return(invisible(NULL))
     messages <- character()
     current <- live_data()
     withProgress(message = "Fetching official cumulative snapshots", value = 0, {

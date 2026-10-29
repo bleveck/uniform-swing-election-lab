@@ -1,4 +1,4 @@
-name: Check app and publish branch
+name: Check and publish Posit and Shinylive
 
 on:
   push:
@@ -33,6 +33,7 @@ jobs:
           packages = [f"{name}@{info['description']['Version']}"
                       for name, info in manifest['packages'].items()]
           packages.append('any::testthat')
+          packages.append('any::shinylive@0.5.0')
           with open(os.environ['GITHUB_OUTPUT'], 'a') as file:
               file.write('packages=' + ','.join(packages) + '\n')
       - uses: r-lib/actions/setup-r-dependencies@v2
@@ -45,6 +46,14 @@ jobs:
         run: Rscript scripts/check_deployment.R
       - name: Run model, data, feed, and Shiny checks
         run: Rscript tests/run_tests.R
+      - name: Build browser app with WebAssembly packages
+        if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+        run: Rscript scripts/build_shinylive.R
+      - name: Upload static site
+        if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: outputs/shinylive-site
 
   publish-branch:
     needs: check
@@ -59,3 +68,19 @@ jobs:
           fetch-depth: 0
       - name: Advance the branch watched by Posit Connect Cloud
         run: git push origin HEAD:refs/heads/codex/publish
+
+  github-pages:
+    needs: check
+    if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/configure-pages@v5
+      - name: Publish the browser app
+        id: deployment
+        uses: actions/deploy-pages@v4

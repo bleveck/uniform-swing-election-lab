@@ -2,7 +2,7 @@
 
 A small R/Shiny teaching demo. Incoming results from ten early House races produce an equal-weight estimate of the change in Democratic two-party vote share. Applying that change everywhere produces an illustrative House seat count. This is intentionally a classroom experiment, not a serious forecast.
 
-[Open the hosted app](https://01a18994-b6cc-bced-bec2-7a672ba20d82.share.connect.posit.cloud/) · [Source and automated checks](https://github.com/bleveck/uniform-swing-election-lab)
+[Open the Posit app](https://bradleveck-election-night-lab.share.connect.posit.cloud/) · [Browser-only app on GitHub Pages](https://bleveck.github.io/uniform-swing-election-lab/) · [Source and automated checks](https://github.com/bleveck/uniform-swing-election-lab)
 
 ## Run it
 
@@ -58,7 +58,7 @@ Rscript scripts/collect_results.R --once --publish
 caffeinate -i Rscript scripts/collect_results.R --watch --publish
 ```
 
-Data updates go to the separate `codex/snapshots` branch and do not trigger app deployment. The shared-file reader uses a basic GET suitable for a future Shinylive version. Historical charts and synthetic replay remain available without a running collector.
+Data updates go to the separate `codex/snapshots` branch and do not trigger app deployment. The shared-file reader uses a basic GET used by both the Posit and Shinylive versions. Historical charts and synthetic replay remain available without a running collector.
 
 **Direct official-feed mode:**
 
@@ -205,7 +205,7 @@ Source: [bleveck/uniform-swing-election-lab](https://github.com/bleveck/uniform-
 
 Published to Connect Cloud on October 29, 2026. The public introduction, CA-13 replay, both Bayesian references, and CSV download were checked in a fresh browser session. Direct requests from Posit fetched North Carolina successfully, but Virginia and Ohio returned HTTP 403; the same feed code succeeded locally for all three states. **Shared laptop snapshots** provides the common data path for the hosted app. See [the collector guide](docs/collector.md) and [deployment guide](docs/deployment.md).
 
-The publishing setup uses a public GitHub repository, `manifest.json`, and a checked publishing branch. The manifest pins R 4.5.2 and the 47 runtime packages, and includes only the 20 files needed to run the app. Raw source archives, rebuild scripts, tests, and documentation remain available in GitHub.
+The publishing setup uses a public GitHub repository, `manifest.json`, and a checked publishing branch. The manifest pins R 4.5.2 and the 47 runtime packages, and includes only the 21 files needed to run the app. Raw source archives, rebuild scripts, tests, and documentation remain available in GitHub.
 
 On every push to `main`, GitHub Actions installs the pinned runtime packages, checks the deployment bundle, and runs the model, data, parser, and Shiny tests. Only a successful run advances **`codex/publish`**, the branch Connect Cloud should watch. Pull requests run the same checks without publishing. No Posit API key is needed in GitHub.
 
@@ -233,7 +233,7 @@ This version runs R on the server: users need only a browser. It requires the R 
 
 Check performance with the intended number of simultaneous students. Shared laptop snapshots centralizes the state requests; direct official-feed mode still fetches per session. Class-sized concurrency has not been load-tested.
 
-Ordinary static hosting cannot run this server-side R app unchanged. [Shinylive for R](https://posit-dev.github.io/r-shinylive/) can run R in the browser and export a static site, but that would be a separate port, including checks of package support and browser access to live feeds.
+A [browser-only Shinylive version](https://bleveck.github.io/uniform-swing-election-lab/) is also published through GitHub Pages. It runs the same R model and charts in webR, using shared laptop snapshots, replays, or CSV input. Direct state fetching remains in the ordinary R app and collector. The first visit downloads the R runtime and packages; allow extra startup time. See [the Shinylive build and hosting guide](docs/shinylive.md).
 
 Sources: [Posit deployment overview](https://shiny.posit.co/r/deploy.html), [Connect Cloud plans](https://docs.posit.co/connect-cloud/user/account/plans.html), and [shinyapps.io active-hour accounting](https://docs.posit.co/shinyapps.io/guide/applications/#active-hours). Prices and quotas can change.
 
