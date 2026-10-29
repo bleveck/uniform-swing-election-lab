@@ -2,6 +2,38 @@
 
 Repository: [bleveck/uniform-swing-election-lab](https://github.com/bleveck/uniform-swing-election-lab). The initial Linux checks passed and created `codex/publish` on October 29, 2026.
 
+[Public app](https://01a18994-b6cc-bced-bec2-7a672ba20d82.share.connect.posit.cloud/) · [Posit content administration](https://connect.posit.cloud/bradleveck/content/01a18994-b6cc-bced-bec2-7a672ba20d82)
+
+First published October 29, 2026, from `codex/publish`, with `app.R` as the primary file and automatic publication on push enabled. The GitHub App installation is restricted to this repository, with read access to code and metadata. Posit uses the Google-authenticated account. The public introduction, charts, actual CA-13 replay, both Bayesian reference options, and ten-row calculation CSV download were verified in a fresh browser session.
+
+## Live-feed access from the hosted app
+
+On October 29, the same `fetch_feed()` code succeeded for Virginia, North Carolina, and Ohio on the local computer. On Posit, North Carolina succeeded; Virginia and Ohio returned HTTP 403. The hosted app reports those providers as unavailable and retains a previous successful snapshot if one exists. The differing behavior is consistent with provider filtering of hosting networks or automated clients; the specific filtering rule has not been established.
+
+To fetch from a computer that can reach the feeds:
+
+```sh
+Rscript scripts/fetch_live.R
+```
+
+This writes one cumulative `data/live/snapshot-*.csv` file. In the hosted app choose **Upload a CSV** and upload that file. Add a KY-06 row separately if desired; it has no automatic connector. Later snapshots replace the earlier totals. Pre-election/test flags are retained, so preparation files remain excluded.
+
+## Shinylive feasibility
+
+The bundled historical charts, replay, and Normal updating calculations are candidates for a static [Shinylive export](https://posit-dev.github.io/r-shinylive/), subject to testing their WebAssembly package versions, file inputs/downloads, and browser performance. A browser version has not yet been built or tested.
+
+The current downloader uses `httr2`. [webR's networking documentation](https://docs.r-wasm.org/webr/latest/networking.html) says `curl`/`httr2` require a WebSocket proxy, while the patched `download.file()` supports simple browser GET requests when the source allows cross-origin access. The feed downloader would need adapting for a fully static deployment.
+
+A GET with `Origin: https://bleveck.github.io` returned these headers on October 29:
+
+| Feed | Cross-origin response |
+|---|---|
+| Virginia | `Access-Control-Allow-Origin: *` — promising for direct browser requests |
+| North Carolina | No `Access-Control-Allow-Origin` — direct cross-origin reading would be blocked |
+| Ohio | `Access-Control-Expose-Headers: Request-Context`, but no `Access-Control-Allow-Origin` — insufficient for direct cross-origin reading |
+
+Browser requests could change the provider's network/client filtering outcome, but remain subject to browser CORS rules. A static teaching version can use bundled replays and uploaded CSVs. A live version can use published snapshots on the same static site or a small permitted feed service. No recurring fetching or Shinylive deployment is configured.
+
 ## First publication
 
 1. Sign in at [Posit Connect Cloud](https://connect.posit.cloud/). The account used to sign in to Posit can be separate from the GitHub account containing the code. If GitHub sign-in fails, an existing Posit email or Google login is another option; use the identity associated with your Posit account.
@@ -45,4 +77,4 @@ The manifest deliberately omits raw archives, build tools, tests, local outputs,
 - [Publishing from GitHub](https://docs.posit.co/connect-cloud/user/publish/github.html)
 - [R dependency files](https://docs.posit.co/connect-cloud/how-to/r/dependencies.html)
 
-Prepared October 29, 2026. Account login, GitHub App authorization, and the initial Connect Cloud publication must be completed before a hosted URL exists.
+Prepared and initially published October 29, 2026. Hosting is verified for an individual browser session; class-sized concurrency has not been load-tested.

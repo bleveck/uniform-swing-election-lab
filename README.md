@@ -2,6 +2,8 @@
 
 A small R/Shiny teaching demo. Incoming results from ten early House races produce an equal-weight estimate of the change in Democratic two-party vote share. Applying that change everywhere produces an illustrative House seat count. This is intentionally a classroom experiment, not a serious forecast.
 
+[Open the hosted app](https://01a18994-b6cc-bced-bec2-7a672ba20d82.share.connect.posit.cloud/) · [Source and automated checks](https://github.com/bleveck/uniform-swing-election-lab)
+
 ## Run it
 
 From this project directory, in R or RStudio:
@@ -186,6 +188,8 @@ Rebuilding CA-13 requires `readxl` and the saved `data/raw/ca13_2024_cvf.xlsx` w
 ## GitHub → Posit Connect Cloud
 
 Source: [bleveck/uniform-swing-election-lab](https://github.com/bleveck/uniform-swing-election-lab). [Automated checks](https://github.com/bleveck/uniform-swing-election-lab/actions) validate each update before advancing the publishing branch.
+
+Published to Connect Cloud on October 29, 2026. The public introduction, CA-13 replay, both Bayesian references, and CSV download were checked in a fresh browser session. Live requests from Posit fetched North Carolina successfully, but Virginia and Ohio returned HTTP 403; the same feed code succeeded locally for all three states. Until provider access from Posit is resolved, use synthetic replay, CSV upload, or run locally. See [the deployment guide](docs/deployment.md) for the local-fetch fallback and browser-hosting considerations.
 
 The publishing setup uses a public GitHub repository, `manifest.json`, and a checked publishing branch. The manifest pins R 4.5.2 and the 47 runtime packages, and includes only the 19 files needed to run the app. Raw source archives, rebuild scripts, tests, and documentation remain available in GitHub.
 
