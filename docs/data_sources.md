@@ -27,6 +27,8 @@ The feeds expose **unofficial cumulative votes**, not an unbiased estimate of th
 
 The live layer checks the election date and expected schema; rejects duplicate candidate/precinct records; validates final district totals; excludes provider mock data; and rejects pre-poll preparation snapshots from estimation. On a network/parser failure, the app identifies the provider as stale and retains only its last successful snapshot. It never substitutes synthetic returns into live mode. Real election-night updates remain to be verified when available.
 
+**Hosted access checked October 29:** all three automatic connectors succeed locally, but direct calls from Posit return HTTP 403 for VA and OH; NC succeeds there. The [laptop collector](collector.md) now publishes a shared public snapshot that the hosted app can read for all nine automatic watchlist districts. Collection time, retrieval times, original provider timestamps, and test flags remain distinct. KY-06 still requires manual entry. Collector data updates are independent of app deployment.
+
 ## AP and other aggregators
 
 **[AP Elections API](https://developer.ap.org/ap-elections-api/)** is the cleanest single-provider option if access is already available. It supplies race/candidate metadata, vote updates, calls, and test data. [Authentication documentation](https://developer.ap.org/ap-elections-api/docs/Getting_Started.htm) requires an API key in `x-api-key`; the public query explorer is not an anonymous free-results feed. Access and redistribution terms would need to be arranged with AP; no pricing or educational-access commitment was established in this research.

@@ -23,6 +23,8 @@ test_that("collector snapshots round-trip and preparation totals cannot become o
   expect_true(all(validate_collector_snapshot(x, collector_time("2026-11-03T23:30:00Z"))$results$is_test))
   actual <- collector_fixture("2026-11-03T23:15:00Z")
   expect_false(any(actual$results$is_test))
+  actual$results$source_updated_at <- "2026-11-03T23:10:00Z"
+  expect_match(collector_status_text(actual, collector_time("2026-11-03T23:16:00Z")), "Provider timestamp: 2026-11-03T23:10:00Z", fixed = TRUE)
 })
 
 test_that("one provider outage preserves only its previous cumulative totals and clocks", {

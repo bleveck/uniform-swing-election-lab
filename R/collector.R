@@ -90,6 +90,8 @@ collector_status_text <- function(snapshot, now = Sys.time(), error = NULL) {
         if (stale) "STALE · " else "", nrow(rows), if (nrow(rows) == 1) "" else "s", p$last_success_at,
         age(p$last_success_at), if (any(rows$is_test)) " · preparation/test data excluded" else "",
         if (p$status == "error") paste0(" · ", p$error) else ""))
+      updated <- unique(as.character(rows$source_updated_at[!is.na(rows$source_updated_at) & nzchar(rows$source_updated_at)]))
+      lines <- c(lines, paste0("    Provider timestamp: ", if (length(updated)) paste(updated, collapse = "; ") else "not supplied"))
     }
   }
   paste(lines, collapse = "\n")

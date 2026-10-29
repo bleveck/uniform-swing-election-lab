@@ -62,4 +62,4 @@ GitHub delivery can add some caching delay. The reader uses a shared minute-base
 - `scripts/collect_results.R`: one-shot and foreground polling commands.
 - `tests/test_collector.R`: preparation flags, outages, stale clocks, malformed data, KY entry times, publication conflicts, and Shiny integration.
 
-For a local-only collection, omit `--publish`. The file is still saved and can be converted/uploaded or inspected in R. A Shinylive app can use the same public snapshot reader's basic `download.file()` GET; this work does not itself create a Shinylive export.
+For a local-only collection, omit `--publish`. The JSON snapshot is still saved and can be inspected in R. The existing `scripts/fetch_live.R` remains available for a CSV export suitable for manual upload. A Shinylive app can use the same public snapshot reader's basic `download.file()` GET; this work does not itself create a Shinylive export.

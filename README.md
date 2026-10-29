@@ -231,7 +231,7 @@ This version runs R on the server: users need only a browser. It requires the R 
 | [shinyapps.io](https://www.shinyapps.io/) | Direct publishing from R/RStudio with `rsconnect`. Currently free for five apps and 25 active instance-hours per month; Starter is $13/month for 100 hours. Active hours measure running instances, rather than student-hours, and include idle time before sleep. |
 | Campus hosting or a Linux VM | An existing campus Posit Connect service would be convenient if available. Otherwise an administrator can run open-source Shiny Server or a containerized R app, with HTTPS, process supervision, and WebSocket-capable routing. This requires ongoing server administration. |
 
-Start with managed hosting for review, then check performance with the intended number of simultaneous students. The current live feed cache is per session; a larger public audience would benefit from shared cached feed snapshots. A deployment does not establish capacity for a full class; concurrency has not been load-tested.
+Check performance with the intended number of simultaneous students. Shared laptop snapshots centralizes the state requests; direct official-feed mode still fetches per session. Class-sized concurrency has not been load-tested.
 
 Ordinary static hosting cannot run this server-side R app unchanged. [Shinylive for R](https://posit-dev.github.io/r-shinylive/) can run R in the browser and export a static site, but that would be a separate port, including checks of package support and browser access to live feeds.
 
