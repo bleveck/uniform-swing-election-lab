@@ -1,0 +1,175 @@
+Replication file for Figures 1, 6, 7, 8, 9, 10, 12, A1, A5, A6, A7
+
+I.  Variables and Codes for JOPrepfile1
+
+year
+year
+decade
+decade
+state
+state (1 to 50 in strict alphabetical order)
+stcd
+state (1 to 50 in strict alphabetical order) and congressional district (01 to n); e.g., the 4th district of Illinois is 1304
+inc
+0 = Republican incumbent  
+1 = Democratic incumbent  
+2 = Open seat held by Democrats  
+3 = Open seat held by Republicans  
+4 = Open seat, new (reapportioned)  
+5 = Two incumbents, opposite parties (redistricting)
+6 = Two Democratic incumbents 
+7 = Two Republican incumbents
+8 = Democratic incumbent, challenger is Democrat
+9 = Republican incumbent, challenger is Republican
+10 = Two Republicans, open seat  
+ptynow
+1 = seat currently held by Democrat
+0 = new seat held by neither party
+-1 = seat currently held by Republican  
+inc3
+1 = Democratic incumbent
+0 = No incumbent
+-1 = Republican incumbent      
+incwin
+1 = incumbent won
+0 = incumbent lost    
+dv
+Democrat’s share of two-party vote (unopposed=missing)
+dvp
+Democrat’s share of two-party vote, previous election
+fr
+0 = not freshman
+1 = freshman elected previous general election
+2 = freshman elected in special election more than 1 year earlier
+3 = freshmen elected in a special election during election year
+9 = seat not defended by major party incumbent    
+redist
+1 = district redrawn since last election
+0 = district not redrawn
+cexpx
+Challenger’s expenditures, adjusted for inflation (2014=1.00)
+iexpx
+Incumbents’s expenditures, adjusted for inflation (2014=1.00)
+dpres
+Democrat’s share of major party presidential vote (for midterms,  
+Democrat’s share two years earlier)
+cprescat
+2 = challenger’s party’s presidential candidate ran 2.01 or more 
+    percentage points ahead of his national vote
+0 = challenger’s party’s presidential candidate ran within 2 
+    percentage points of his national vote
+-2 = challenger’s party’s presidential candidate ran 2.01 or more 
+    percentage points behind his national vote	
+midterm
+1 = midterm election year
+0 = presidential election year
+split
+1 = district plurality for different parties in House and
+    presidential election, 
+0 = if same party wins district plurality for both offices
+south
+1 = South (11 states of the old Confederacy)
+0 = nonsouth
+
+
+II.  Replication Instructions for data in Figures using JOPrepfile1
+
+Figure 1.  
+
+a.  Gelman-King incumbency advantage:
+
+. sort year
+. by year:  reg dv dvp ptynow inc3 if redist==0&year!=1972& year!=1982& year!1992&year!=2002&year!=2012
+
+Coefficient on “inc3” is the incumbency advantage
+
+b.  Modified Gelman-King incumbency advantage:
+
+. sort year
+. by year:  reg dv dpres ptynow inc3
+
+Coefficient on “inc3” is the incumbency  advantage
+	
+c.  Slurge (average of “sophomore surge” and “retirement slump”)
+
+Sophomore surge:  difference in the change in vote share from the previous election for the party’s candidate (dv-dvp) in seats held by freshmen incumbents (fr=1) compared to other incumbents (fr=0), computed for each party for each year (opposite sign for Repubicans).  Includes only candidates with major party opposition in both current and previous election; freshmen includes new members elected in the previous election (fr=1), but not freshmen elected between the regular elections (fr=2, fr=3).  Calculate the average for both parties together.
+
+Retirement slump:  difference in the change in vote share from the previous election between contests involving incumbents (inc=0 if Republican, inc=1 if  Democrat) compared to contests in districts held by the party with no incumbent running (inc=3 if Republican, inc=2 if Democrat), computed for each party for each year.  Includes only candidates with major party opposition in both current and previous election.  Calculate the average for both parties together.
+
+Average the sophomore surge and retirement slumps to get the Slurge.
+Figure 6.  
+
+. by year: correl  dv dpres if midterm==0
+. by year: correl  dv dpres if midterm==0&inc<2
+
+Square the result, multiply by 100 to get percent of variance explained. 
+
+Figure 7.
+
+. tabulate year if midterm==0&split==1&inc<2
+. tabulate year if midterm==0&split==1&inc>1
+
+Take the frequencies for split results for each year in the series, divide by 4.35 to get the percentage of split results for each category (incumbents and non-incumbents).  
+
+Figure 8.
+
+. tabulate year if incwin==1&cprescat==2&inc==1&year!=1962 &year!=1966
+. tabulate year if incwin==1&cprescat==2&inc==0&year!=1962 &year!=1966
+
+Frequencies listed for each year in the results for incumbents of each party comprise the data points in this file.
+
+Figure 9
+
+. tabulate decade if cprescat==-2, sum (incwin)
+. tabulate decade if cprescat==0, sum (incwin)
+. tabulate decade if cprescat==2, sum (incwin)
+
+Enter results as percentages for “leans to incumbent’s party,” “balanced,” and “leans to challengers party.”  
+
+Figure 10
+
+Calculated by hand using candidate lists and various editions of the Almanac of American Politics.  “Unfriendly territory” are districts won by the favored party in the specified large swing year in which cprescat=2.
+
+Figure 12
+
+. tabulate year if cprescat==2, sum (cexpx)
+. tabulate year if cprescat==0, sum (cexpx)
+. tabulate year if cprescat==-2, sum (cexpx)
+
+Enter results in “District Favors Challenger,” “Balanced,” and “District Favors Incumbent”
+
+Figure A1
+
+Gelman-King:
+
+. sort decade
+. by decade: areg dv dvp ptynow inc3 if south==1&redist==0, absorb (year)
+. by decade: areg dv dvp ptynow inc3 if south==0&redist==0, absorb (year)
+
+Modified Gelman-King:
+
+. sort decade
+. by decade: areg dv dpres ptynow inc3 if south==1, absorb (year)
+. by decade: areg dv dpres ptynow inc3 if south==0, absorb (year)
+
+Figure A5
+
+. by year: correl  dv dpres if midterm==0&South==1
+. by year: correl  dv dpres if midterm==0&South==0
+
+Square the result, multiply by 100 to get percent of variance explained. 
+
+Figure A6
+
+. tabulate year if midterm==0&south==1, sum (split)
+. tabulate year if midterm==0&south==0, sum (split)
+
+Multiply results by 100 to get percentage of split results, South and Non-South
+
+Figure A7
+
+. tabulate year if incwin==1&cprescat==2&south==1&year!=1962 &year!=1966
+. tabulate year if incwin==1&cprescat==2&south==0&year!=1962 &year!=1966
+
+Frequencies listed by year in the results for incumbents of each region comprise the data points in this file.
+

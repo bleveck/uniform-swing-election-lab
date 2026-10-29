@@ -1,0 +1,13 @@
+.Rhistory
+.RData
+.Rproj.user/
+data/live/
+data/raw/*.pdf
+*.log
+Rplots.pdf
+outputs/
+.DS_Store
+.Renviron
+.env
+.env.*
+rsconnect/

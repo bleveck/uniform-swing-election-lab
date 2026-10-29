@@ -1,0 +1,1799 @@
+{
+  "electionDate": "2026-11-03",
+  "electionName": "2026 November General",
+  "createdAt": "2026-10-27T19:44:27.8981532Z",
+  "results": {
+    "id": "d2c804ee-4ec2-46bb-91d7-5b41526eab03",
+    "name": "Virginia ",
+    "ballotItems": [
+      {
+        "type": "State",
+        "id": "cc90",
+        "name": "Member, House of Representatives (1st District)",
+        "voteFor": 1,
+        "ballotOrder": 2,
+        "precinctsParticipating": null,
+        "precinctsReporting": null,
+        "contestType": "Candidate",
+        "ballotOptions": [
+          {
+            "id": "cs188",
+            "name": "Shannon L. Taylor",
+            "ballotOrder": 1,
+            "voteCount": 0,
+            "politicalParty": "Democratic",
+            "groupResults": [
+              {
+                "groupName": "Early Voting",
+                "voteCount": 0,
+                "isFromVirtualPrecinct": false
+              },
+              {
+                "groupName": "Election Day",
+                "voteCount": 0,
+                "isFromVirtualPrecinct": false
+              },
+              {
+                "groupName": "Mailed Absentee",
+                "voteCount": 0,
+                "isFromVirtualPrecinct": false
+              },
+              {
+                "groupName": "Provisional",
+                "voteCount": 0,
+                "isFromVirtualPrecinct": false
+              },
+              {
+                "groupName": "Post-Election",
+                "voteCount": 0,
+                "isFromVirtualPrecinct": false
+              }
+            ],
+            "precinctResults": null
+          },
+          {
+            "id": "cs189",
+            "name": "Robert J. \"Rob\" Wittman",
+            "ballotOrder": 2,
+            "voteCount": 0,
+            "politicalParty": "Republican",
+            "groupResults": [
+              {
+                "groupName": "Early Voting",
+                "voteCount": 0,
+                "isFromVirtualPrecinct": false
+              },
+              {
+                "groupName": "Election Day",
+                "voteCount": 0,
+                "isFromVirtualPrecinct": false
+              },
+              {
+                "groupName": "Mailed Absentee",
+                "voteCount": 0,
+                "isFromVirtualPrecinct": false
+              },
+              {
+                "groupName": "Provisional",
+                "voteCount": 0,
+                "isFromVirtualPrecinct": false
+              },
+              {
+                "groupName": "Post-Election",
+                "voteCount": 0,
+                "isFromVirtualPrecinct": false
+              }
+            ],
+            "precinctResults": null
+          },
+          {
+            "id": "wi-cc90",
+            "name": "Write-In",
+            "ballotOrder": 3,
+            "voteCount": 0,
+            "politicalParty": null,
+            "groupResults": [
+              {
+                "groupName": "Early Voting",
+                "voteCount": 0,
+                "isFromVirtualPrecinct": false
+              },
+              {
+                "groupName": "Election Day",
+                "voteCount": 0,
+                "isFromVirtualPrecinct": false
+              },
+              {
+                "groupName": "Mailed Absentee",
+                "voteCount": 0,
+                "isFromVirtualPrecinct": false
+              },
+              {
+                "groupName": "Provisional",
+                "voteCount": 0,
+                "isFromVirtualPrecinct": false
+              },
+              {
+                "groupName": "Post-Election",
+                "voteCount": 0,
+                "isFromVirtualPrecinct": false
+              }
+            ],
+            "precinctResults": null
+          }
+        ],
+        "rankedChoiceResults": null
+      },
+      {
+        "type": "State",
+        "id": "cc134",
+        "name": "Member, House of Representatives (2nd District)",
+        "voteFor": 1,
+        "ballotOrder": 3,
+        "precinctsParticipating": null,
+        "precinctsReporting": null,
+        "contestType": "Candidate",
+        "ballotOptions": [
+          {
+            "id": "cs268",
+            "name": "Elaine G. Luria",
+            "ballotOrder": 1,
+            "voteCount": 0,
+            "politicalParty": "Democratic",
+            "groupResults": [
+              {
+                "groupName": "Early Voting",
+                "voteCount": 0,
+                "isFromVirtualPrecinct": false
+              },
+              {
+                "groupName": "Election Day",
+                "voteCount": 0,
+                "isFromVirtualPrecinct": false
+              },
+              {
+                "groupName": "Mailed Absentee",
+                "voteCount": 0,
+                "isFromVirtualPrecinct": false
+              },
+              {
+                "groupName": "Provisional",
+                "voteCount": 0,
+                "isFromVirtualPrecinct": false
+              },
+              {
+                "groupName": "Post-Election",
+                "voteCount": 0,
+                "isFromVirtualPrecinct": false
+              }
+            ],
+            "precinctResults": null
+          },
+          {
+            "id": "cs269",
+            "name": "Jen A. Kiggans",
+            "ballotOrder": 2,
+            "voteCount": 0,
+            "politicalParty": "Republican",
+            "groupResults": [
+              {
+                "groupName": "Early Voting",
+                "voteCount": 0,
+                "isFromVirtualPrecinct": false
+              },
+              {
+                "groupName": "Election Day",
+                "voteCount": 0,
+                "isFromVirtualPrecinct": false
+              },
+              {
+                "groupName": "Mailed Absentee",
+                "voteCount": 0,
+                "isFromVirtualPrecinct": false
+              },
+              {
+                "groupName": "Provisional",
+                "voteCount": 0,
+                "isFromVirtualPrecinct": false
+              },
+              {
+                "groupName": "Post-Election",
+                "voteCount": 0,
+                "isFromVirtualPrecinct": false
+              }
+            ],
+            "precinctResults": null
+          },
+          {
+            "id": "cs270",
+            "name": "Geral D. \"Bishop\" Staten",
+            "ballotOrder": 3,
+            "voteCount": 0,
+            "politicalParty": "Independent",
+            "groupResults": [
+              {
+                "groupName": "Early Voting",
+                "voteCount": 0,
+                "isFromVirtualPrecinct": false
+              },
+              {
+                "groupName": "Election Day",
+                "voteCount": 0,
+                "isFromVirtualPrecinct": false
+              },
+              {
+                "groupName": "Mailed Absentee",
+                "voteCount": 0,
+                "isFromVirtualPrecinct": false
+              },
+              {
+                "groupName": "Provisional",
+                "voteCount": 0,
+                "isFromVirtualPrecinct": false
+              },
+              {
+                "groupName": "Post-Election",
+                "voteCount": 0,
+                "isFromVirtualPrecinct": false
+              }
+            ],
+            "precinctResults": null
+          },
+          {
+            "id": "cs271",
+            "name": "J. Matt Baker",
+            "ballotOrder": 4,
+            "voteCount": 0,
+            "politicalParty": "Independent",
+            "groupResults": [
+              {
+                "groupName": "Early Voting",
+                "voteCount": 0,
+                "isFromVirtualPrecinct": false
+              },
+              {
+                "groupName": "Election Day",
+                "voteCount": 0,
+                "isFromVirtualPrecinct": false
+              },
+              {
+                "groupName": "Mailed Absentee",
+                "voteCount": 0,
+                "isFromVirtualPrecinct": false
+              },
+              {
+                "groupName": "Provisional",
+                "voteCount": 0,
+                "isFromVirtualPrecinct": false
+              },
+              {
+                "groupName": "Post-Election",
+                "voteCount": 0,
+                "isFromVirtualPrecinct": false
+              }
+            ],
+            "precinctResults": null
+          },
+          {
+            "id": "wi-cc134",
+            "name": "Write-In",
+            "ballotOrder": 5,
+            "voteCount": 0,
+            "politicalParty": null,
+            "groupResults": [
+              {
+                "groupName": "Early Voting",
+                "voteCount": 0,
+                "isFromVirtualPrecinct": false
+              },
+              {
+                "groupName": "Election Day",
+                "voteCount": 0,
+                "isFromVirtualPrecinct": false
+              },
+              {
+                "groupName": "Mailed Absentee",
+                "voteCount": 0,
+                "isFromVirtualPrecinct": false
+              },
+              {
+                "groupName": "Provisional",
+                "voteCount": 0,
+                "isFromVirtualPrecinct": false
+              },
+              {
+                "groupName": "Post-Election",
+                "voteCount": 0,
+                "isFromVirtualPrecinct": false
+              }
+            ],
+            "precinctResults": null
+          }
+        ],
+        "rankedChoiceResults": null
+      },
+      {
+        "type": "State",
+        "id": "cc57",
+        "name": "Member, House of Representatives (3rd District)",
+        "voteFor": 1,
+        "ballotOrder": 4,
+        "precinctsParticipating": null,
+        "precinctsReporting": null,
+        "contestType": "Candidate",
+        "ballotOptions": [
+          {
+            "id": "cs115",
+            "name": "Robert C. \"Bobby\" Scott",
+            "ballotOrder": 1,
+            "voteCount": 0,
+            "politicalParty": "Democratic",
+            "groupResults": [
+              {
+                "groupName": "Early Voting",
+                "voteCount": 0,
+                "isFromVirtualPrecinct": false
+              },
+              {
+                "groupName": "Election Day",
+                "voteCount": 0,
+                "isFromVirtualPrecinct": false
+              },
+              {
+                "groupName": "Mailed Absentee",
+                "voteCount": 0,
+                "isFromVirtualPrecinct": false
+              },
+              {
+                "groupName": "Provisional",
+                "voteCount": 0,
+                "isFromVirtualPrecinct": false
+              },
+              {
+                "groupName": "Post-Election",
+                "voteCount": 0,
+                "isFromVirtualPrecinct": false
+              }
+            ],
+            "precinctResults": null
+          },
+          {
+            "id": "cs116",
+            "name": "Edwin Rivera, Jr.",
+            "ballotOrder": 2,
+            "voteCount": 0,
+            "politicalParty": "Republican",
+            "groupResults": [
+              {
+                "groupName": "Early Voting",
+                "voteCount": 0,
+                "isFromVirtualPrecinct": false
+              },
+              {
+                "groupName": "Election Day",
+                "voteCount": 0,
+                "isFromVirtualPrecinct": false
+              },
+              {
+                "groupName": "Mailed Absentee",
+                "voteCount": 0,
+                "isFromVirtualPrecinct": false
+              },
+              {
+                "groupName": "Provisional",
+                "voteCount": 0,
+                "isFromVirtualPrecinct": false
+              },
+              {
+                "groupName": "Post-Election",
+                "voteCount": 0,
+                "isFromVirtualPrecinct": false
+              }
+            ],
+            "precinctResults": null
+          },
+          {
+            "id": "cs117",
+            "name": "Makiba A. Gaines",
+            "ballotOrder": 3,
+            "voteCount": 0,
+            "politicalParty": "Independent",
+            "groupResults": [
+              {
+                "groupName": "Early Voting",
+                "voteCount": 0,
+                "isFromVirtualPrecinct": false
+              },
+              {
+                "groupName": "Election Day",
+                "voteCount": 0,
+                "isFromVirtualPrecinct": false
+              },
+              {
+                "groupName": "Mailed Absentee",
+                "voteCount": 0,
+                "isFromVirtualPrecinct": false
+              },
+              {
+                "groupName": "Provisional",
+                "voteCount": 0,
+                "isFromVirtualPrecinct": false
+              },
+              {
+                "groupName": "Post-Election",
+                "voteCount": 0,
+                "isFromVirtualPrecinct": false
+              }
+            ],
+            "precinctResults": null
+          },
+          {
+            "id": "cs118",
+            "name": "Stephen C. Woll",
+            "ballotOrder": 4,
+            "voteCount": 0,
+            "politicalParty": "Independent",
+            "groupResults": [
+              {
+                "groupName": "Early Voting",
+                "voteCount": 0,
+                "isFromVirtualPrecinct": false
+              },
+              {
+                "groupName": "Election Day",
+                "voteCount": 0,
+                "isFromVirtualPrecinct": false
+              },
+              {
+                "groupName": "Mailed Absentee",
+                "voteCount": 0,
+                "isFromVirtualPrecinct": false
+              },
+              {
+                "groupName": "Provisional",
+                "voteCount": 0,
+                "isFromVirtualPrecinct": false
+              },
+              {
+                "groupName": "Post-Election",
+                "voteCount": 0,
+                "isFromVirtualPrecinct": false
+              }
+            ],
+            "precinctResults": null
+          },
+          {
+            "id": "wi-cc57",
+            "name": "Write-In",
+            "ballotOrder": 5,
+            "voteCount": 0,
+            "politicalParty": null,
+            "groupResults": [
+              {
+                "groupName": "Early Voting",
+                "voteCount": 0,
+                "isFromVirtualPrecinct": false
+              },
+              {
+                "groupName": "Election Day",
+                "voteCount": 0,
+                "isFromVirtualPrecinct": false
+              },
+              {
+                "groupName": "Mailed Absentee",
+                "voteCount": 0,
+                "isFromVirtualPrecinct": false
+              },
+              {
+                "groupName": "Provisional",
+                "voteCount": 0,
+                "isFromVirtualPrecinct": false
+              },
+              {
+                "groupName": "Post-Election",
+                "voteCount": 0,
+                "isFromVirtualPrecinct": false
+              }
+            ],
+            "precinctResults": null
+          }
+        ],
+        "rankedChoiceResults": null
+      },
+      {
+        "type": "State",
+        "id": "cc203",
+        "name": "Member, House of Representatives (4th District)",
+        "voteFor": 1,
+        "ballotOrder": 5,
+        "precinctsParticipating": null,
+        "precinctsReporting": null,
+        "contestType": "Candidate",
+        "ballotOptions": [
+          {
+            "id": "cs443",
+            "name": "Jennifer L. McClellan",
+            "ballotOrder": 1,
+            "voteCount": 0,
+            "politicalParty": "Democratic",
+            "groupResults": [
+              {
+                "groupName": "Early Voting",
+                "voteCount": 0,
+                "isFromVirtualPrecinct": false
+              },
+              {
+                "groupName": "Election Day",
+                "voteCount": 0,
+                "isFromVirtualPrecinct": false
+              },
+              {
+                "groupName": "Mailed Absentee",
+                "voteCount": 0,
+                "isFromVirtualPrecinct": false
+              },
+              {
+                "groupName": "Provisional",
+                "voteCount": 0,
+                "isFromVirtualPrecinct": false
+              },
+              {
+                "groupName": "Post-Election",
+                "voteCount": 0,
+                "isFromVirtualPrecinct": false
+              }
+            ],
+            "precinctResults": null
+          },
+          {
+            "id": "cs444",
+            "name": "Robert P. \"Family Man\" Murray, Jr.",
+            "ballotOrder": 2,
+            "voteCount": 0,
+            "politicalParty": "Republican",
+            "groupResults": [
+              {
+                "groupName": "Early Voting",
+                "voteCount": 0,
+                "isFromVirtualPrecinct": false
+              },
+              {
+                "groupName": "Election Day",
+                "voteCount": 0,
+                "isFromVirtualPrecinct": false
+              },
+              {
+                "groupName": "Mailed Absentee",
+                "voteCount": 0,
+                "isFromVirtualPrecinct": false
+              },
+              {
+                "groupName": "Provisional",
+                "voteCount": 0,
+                "isFromVirtualPrecinct": false
+              },
+              {
+                "groupName": "Post-Election",
+                "voteCount": 0,
+                "isFromVirtualPrecinct": false
+              }
+            ],
+            "precinctResults": null
+          },
+          {
+            "id": "cs445",
+            "name": "Joan E. \"Andrews\" Bell",
+            "ballotOrder": 3,
+            "voteCount": 0,
+            "politicalParty": "Independent",
+            "groupResults": [
+              {
+                "groupName": "Early Voting",
+                "voteCount": 0,
+                "isFromVirtualPrecinct": false
+              },
+              {
+                "groupName": "Election Day",
+                "voteCount": 0,
+                "isFromVirtualPrecinct": false
+              },
+              {
+                "groupName": "Mailed Absentee",
+                "voteCount": 0,
+                "isFromVirtualPrecinct": false
+              },
+              {
+                "groupName": "Provisional",
+                "voteCount": 0,
+                "isFromVirtualPrecinct": false
+              },
+              {
+                "groupName": "Post-Election",
+                "voteCount": 0,
+                "isFromVirtualPrecinct": false
+              }
+            ],
+            "precinctResults": null
+          },
+          {
+            "id": "wi-cc203",
+            "name": "Write-In",
+            "ballotOrder": 4,
+            "voteCount": 0,
+            "politicalParty": null,
+            "groupResults": [
+              {
+                "groupName": "Early Voting",
+                "voteCount": 0,
+                "isFromVirtualPrecinct": false
+              },
+              {
+                "groupName": "Election Day",
+                "voteCount": 0,
+                "isFromVirtualPrecinct": false
+              },
+              {
+                "groupName": "Mailed Absentee",
+                "voteCount": 0,
+                "isFromVirtualPrecinct": false
+              },
+              {
+                "groupName": "Provisional",
+                "voteCount": 0,
+                "isFromVirtualPrecinct": false
+              },
+              {
+                "groupName": "Post-Election",
+                "voteCount": 0,
+                "isFromVirtualPrecinct": false
+              }
+            ],
+            "precinctResults": null
+          }
+        ],
+        "rankedChoiceResults": null
+      },
+      {
+        "type": "State",
+        "id": "cc28",
+        "name": "Member, House of Representatives (5th District)",
+        "voteFor": 1,
+        "ballotOrder": 6,
+        "precinctsParticipating": null,
+        "precinctsReporting": null,
+        "contestType": "Candidate",
+        "ballotOptions": [
+          {
+            "id": "cs60",
+            "name": "Tom S. P. Perriello",
+            "ballotOrder": 1,
+            "voteCount": 0,
+            "politicalParty": "Democratic",
+            "groupResults": [
+              {
+                "groupName": "Early Voting",
+                "voteCount": 0,
+                "isFromVirtualPrecinct": false
+              },
+              {
+                "groupName": "Election Day",
+                "voteCount": 0,
+                "isFromVirtualPrecinct": false
+              },
+              {
+                "groupName": "Mailed Absentee",
+                "voteCount": 0,
+                "isFromVirtualPrecinct": false
+              },
+              {
+                "groupName": "Provisional",
+                "voteCount": 0,
+                "isFromVirtualPrecinct": false
+              },
+              {
+                "groupName": "Post-Election",
+                "voteCount": 0,
+                "isFromVirtualPrecinct": false
+              }
+            ],
+            "precinctResults": null
+          },
+          {
+            "id": "cs61",
+            "name": "John J. McGuire III",
+            "ballotOrder": 2,
+            "voteCount": 0,
+            "politicalParty": "Republican",
+            "groupResults": [
+              {
+                "groupName": "Early Voting",
+                "voteCount": 0,
+                "isFromVirtualPrecinct": false
+              },
+              {
+                "groupName": "Election Day",
+                "voteCount": 0,
+                "isFromVirtualPrecinct": false
+              },
+              {
+                "groupName": "Mailed Absentee",
+                "voteCount": 0,
+                "isFromVirtualPrecinct": false
+              },
+              {
+                "groupName": "Provisional",
+                "voteCount": 0,
+                "isFromVirtualPrecinct": false
+              },
+              {
+                "groupName": "Post-Election",
+                "voteCount": 0,
+                "isFromVirtualPrecinct": false
+              }
+            ],
+            "precinctResults": null
+          },
+          {
+            "id": "cs62",
+            "name": "Cooke C. Harvey",
+            "ballotOrder": 3,
+            "voteCount": 0,
+            "politicalParty": "Independent",
+            "groupResults": [
+              {
+                "groupName": "Early Voting",
+                "voteCount": 0,
+                "isFromVirtualPrecinct": false
+              },
+              {
+                "groupName": "Election Day",
+                "voteCount": 0,
+                "isFromVirtualPrecinct": false
+              },
+              {
+                "groupName": "Mailed Absentee",
+                "voteCount": 0,
+                "isFromVirtualPrecinct": false
+              },
+              {
+                "groupName": "Provisional",
+                "voteCount": 0,
+                "isFromVirtualPrecinct": false
+              },
+              {
+                "groupName": "Post-Election",
+                "voteCount": 0,
+                "isFromVirtualPrecinct": false
+              }
+            ],
+            "precinctResults": null
+          },
+          {
+            "id": "wi-cc28",
+            "name": "Write-In",
+            "ballotOrder": 4,
+            "voteCount": 0,
+            "politicalParty": null,
+            "groupResults": [
+              {
+                "groupName": "Early Voting",
+                "voteCount": 0,
+                "isFromVirtualPrecinct": false
+              },
+              {
+                "groupName": "Election Day",
+                "voteCount": 0,
+                "isFromVirtualPrecinct": false
+              },
+              {
+                "groupName": "Mailed Absentee",
+                "voteCount": 0,
+                "isFromVirtualPrecinct": false
+              },
+              {
+                "groupName": "Provisional",
+                "voteCount": 0,
+                "isFromVirtualPrecinct": false
+              },
+              {
+                "groupName": "Post-Election",
+                "voteCount": 0,
+                "isFromVirtualPrecinct": false
+              }
+            ],
+            "precinctResults": null
+          }
+        ],
+        "rankedChoiceResults": null
+      },
+      {
+        "type": "State",
+        "id": "cc367",
+        "name": "Member, House of Representatives (6th District)",
+        "voteFor": 1,
+        "ballotOrder": 7,
+        "precinctsParticipating": null,
+        "precinctsReporting": null,
+        "contestType": "Candidate",
+        "ballotOptions": [
+          {
+            "id": "cs829",
+            "name": "Beth A. Macy",
+            "ballotOrder": 1,
+            "voteCount": 0,
+            "politicalParty": "Democratic",
+            "groupResults": [
+              {
+                "groupName": "Early Voting",
+                "voteCount": 0,
+                "isFromVirtualPrecinct": false
+              },
+              {
+                "groupName": "Election Day",
+                "voteCount": 0,
+                "isFromVirtualPrecinct": false
+              },
+              {
+                "groupName": "Mailed Absentee",
+                "voteCount": 0,
+                "isFromVirtualPrecinct": false
+              },
+              {
+                "groupName": "Provisional",
+                "voteCount": 0,
+                "isFromVirtualPrecinct": false
+              },
+              {
+                "groupName": "Post-Election",
+                "voteCount": 0,
+                "isFromVirtualPrecinct": false
+              }
+            ],
+            "precinctResults": null
+          },
+          {
+            "id": "cs830",
+            "name": "Ben L. Cline",
+            "ballotOrder": 2,
+            "voteCount": 0,
+            "politicalParty": "Republican",
+            "groupResults": [
+              {
+                "groupName": "Early Voting",
+                "voteCount": 0,
+                "isFromVirtualPrecinct": false
+              },
+              {
+                "groupName": "Election Day",
+                "voteCount": 0,
+                "isFromVirtualPrecinct": false
+              },
+              {
+                "groupName": "Mailed Absentee",
+                "voteCount": 0,
+                "isFromVirtualPrecinct": false
+              },
+              {
+                "groupName": "Provisional",
+                "voteCount": 0,
+                "isFromVirtualPrecinct": false
+              },
+              {
+                "groupName": "Post-Election",
+                "voteCount": 0,
+                "isFromVirtualPrecinct": false
+              }
+            ],
+            "precinctResults": null
+          },
+          {
+            "id": "wi-cc367",
+            "name": "Write-In",
+            "ballotOrder": 3,
+            "voteCount": 0,
+            "politicalParty": null,
+            "groupResults": [
+              {
+                "groupName": "Early Voting",
+                "voteCount": 0,
+                "isFromVirtualPrecinct": false
+              },
+              {
+                "groupName": "Election Day",
+                "voteCount": 0,
+                "isFromVirtualPrecinct": false
+              },
+              {
+                "groupName": "Mailed Absentee",
+                "voteCount": 0,
+                "isFromVirtualPrecinct": false
+              },
+              {
+                "groupName": "Provisional",
+                "voteCount": 0,
+                "isFromVirtualPrecinct": false
+              },
+              {
+                "groupName": "Post-Election",
+                "voteCount": 0,
+                "isFromVirtualPrecinct": false
+              }
+            ],
+            "precinctResults": null
+          }
+        ],
+        "rankedChoiceResults": null
+      },
+      {
+        "type": "State",
+        "id": "cc211",
+        "name": "Member, House of Representatives (7th District)",
+        "voteFor": 1,
+        "ballotOrder": 8,
+        "precinctsParticipating": null,
+        "precinctsReporting": null,
+        "contestType": "Candidate",
+        "ballotOptions": [
+          {
+            "id": "cs479",
+            "name": "Eugene S. Vindman",
+            "ballotOrder": 1,
+            "voteCount": 0,
+            "politicalParty": "Democratic",
+            "groupResults": [
+              {
+                "groupName": "Early Voting",
+                "voteCount": 0,
+                "isFromVirtualPrecinct": false
+              },
+              {
+                "groupName": "Election Day",
+                "voteCount": 0,
+                "isFromVirtualPrecinct": false
+              },
+              {
+                "groupName": "Mailed Absentee",
+                "voteCount": 0,
+                "isFromVirtualPrecinct": false
+              },
+              {
+                "groupName": "Provisional",
+                "voteCount": 0,
+                "isFromVirtualPrecinct": false
+              },
+              {
+                "groupName": "Post-Election",
+                "voteCount": 0,
+                "isFromVirtualPrecinct": false
+              }
+            ],
+            "precinctResults": null
+          },
+          {
+            "id": "cs480",
+            "name": "Doug A. Ollivant",
+            "ballotOrder": 2,
+            "voteCount": 0,
+            "politicalParty": "Republican",
+            "groupResults": [
+              {
+                "groupName": "Early Voting",
+                "voteCount": 0,
+                "isFromVirtualPrecinct": false
+              },
+              {
+                "groupName": "Election Day",
+                "voteCount": 0,
+                "isFromVirtualPrecinct": false
+              },
+              {
+                "groupName": "Mailed Absentee",
+                "voteCount": 0,
+                "isFromVirtualPrecinct": false
+              },
+              {
+                "groupName": "Provisional",
+                "voteCount": 0,
+                "isFromVirtualPrecinct": false
+              },
+              {
+                "groupName": "Post-Election",
+                "voteCount": 0,
+                "isFromVirtualPrecinct": false
+              }
+            ],
+            "precinctResults": null
+          },
+          {
+            "id": "cs481",
+            "name": "Taner E. Demirci Lopez",
+            "ballotOrder": 3,
+            "voteCount": 0,
+            "politicalParty": "Libertarian",
+            "groupResults": [
+              {
+                "groupName": "Early Voting",
+                "voteCount": 0,
+                "isFromVirtualPrecinct": false
+              },
+              {
+                "groupName": "Election Day",
+                "voteCount": 0,
+                "isFromVirtualPrecinct": false
+              },
+              {
+                "groupName": "Mailed Absentee",
+                "voteCount": 0,
+                "isFromVirtualPrecinct": false
+              },
+              {
+                "groupName": "Provisional",
+                "voteCount": 0,
+                "isFromVirtualPrecinct": false
+              },
+              {
+                "groupName": "Post-Election",
+                "voteCount": 0,
+                "isFromVirtualPrecinct": false
+              }
+            ],
+            "precinctResults": null
+          },
+          {
+            "id": "cs482",
+            "name": "Alaha Ahrar",
+            "ballotOrder": 4,
+            "voteCount": 0,
+            "politicalParty": "Independent",
+            "groupResults": [
+              {
+                "groupName": "Early Voting",
+                "voteCount": 0,
+                "isFromVirtualPrecinct": false
+              },
+              {
+                "groupName": "Election Day",
+                "voteCount": 0,
+                "isFromVirtualPrecinct": false
+              },
+              {
+                "groupName": "Mailed Absentee",
+                "voteCount": 0,
+                "isFromVirtualPrecinct": false
+              },
+              {
+                "groupName": "Provisional",
+                "voteCount": 0,
+                "isFromVirtualPrecinct": false
+              },
+              {
+                "groupName": "Post-Election",
+                "voteCount": 0,
+                "isFromVirtualPrecinct": false
+              }
+            ],
+            "precinctResults": null
+          },
+          {
+            "id": "cs483",
+            "name": "Joshua E. Ertle",
+            "ballotOrder": 5,
+            "voteCount": 0,
+            "politicalParty": "Independent",
+            "groupResults": [
+              {
+                "groupName": "Early Voting",
+                "voteCount": 0,
+                "isFromVirtualPrecinct": false
+              },
+              {
+                "groupName": "Election Day",
+                "voteCount": 0,
+                "isFromVirtualPrecinct": false
+              },
+              {
+                "groupName": "Mailed Absentee",
+                "voteCount": 0,
+                "isFromVirtualPrecinct": false
+              },
+              {
+                "groupName": "Provisional",
+                "voteCount": 0,
+                "isFromVirtualPrecinct": false
+              },
+              {
+                "groupName": "Post-Election",
+                "voteCount": 0,
+                "isFromVirtualPrecinct": false
+              }
+            ],
+            "precinctResults": null
+          },
+          {
+            "id": "cs484",
+            "name": "Randall A. Terry",
+            "ballotOrder": 6,
+            "voteCount": 0,
+            "politicalParty": "Independent",
+            "groupResults": [
+              {
+                "groupName": "Early Voting",
+                "voteCount": 0,
+                "isFromVirtualPrecinct": false
+              },
+              {
+                "groupName": "Election Day",
+                "voteCount": 0,
+                "isFromVirtualPrecinct": false
+              },
+              {
+                "groupName": "Mailed Absentee",
+                "voteCount": 0,
+                "isFromVirtualPrecinct": false
+              },
+              {
+                "groupName": "Provisional",
+                "voteCount": 0,
+                "isFromVirtualPrecinct": false
+              },
+              {
+                "groupName": "Post-Election",
+                "voteCount": 0,
+                "isFromVirtualPrecinct": false
+              }
+            ],
+            "precinctResults": null
+          },
+          {
+            "id": "wi-cc211",
+            "name": "Write-In",
+            "ballotOrder": 7,
+            "voteCount": 0,
+            "politicalParty": null,
+            "groupResults": [
+              {
+                "groupName": "Early Voting",
+                "voteCount": 0,
+                "isFromVirtualPrecinct": false
+              },
+              {
+                "groupName": "Election Day",
+                "voteCount": 0,
+                "isFromVirtualPrecinct": false
+              },
+              {
+                "groupName": "Mailed Absentee",
+                "voteCount": 0,
+                "isFromVirtualPrecinct": false
+              },
+              {
+                "groupName": "Provisional",
+                "voteCount": 0,
+                "isFromVirtualPrecinct": false
+              },
+              {
+                "groupName": "Post-Election",
+                "voteCount": 0,
+                "isFromVirtualPrecinct": false
+              }
+            ],
+            "precinctResults": null
+          }
+        ],
+        "rankedChoiceResults": null
+      },
+      {
+        "type": "State",
+        "id": "cc115",
+        "name": "Member, House of Representatives (8th District)",
+        "voteFor": 1,
+        "ballotOrder": 9,
+        "precinctsParticipating": null,
+        "precinctsReporting": null,
+        "contestType": "Candidate",
+        "ballotOptions": [
+          {
+            "id": "cs236",
+            "name": "Donald S. Beyer, Jr.",
+            "ballotOrder": 1,
+            "voteCount": 0,
+            "politicalParty": "Democratic",
+            "groupResults": [
+              {
+                "groupName": "Early Voting",
+                "voteCount": 0,
+                "isFromVirtualPrecinct": false
+              },
+              {
+                "groupName": "Election Day",
+                "voteCount": 0,
+                "isFromVirtualPrecinct": false
+              },
+              {
+                "groupName": "Mailed Absentee",
+                "voteCount": 0,
+                "isFromVirtualPrecinct": false
+              },
+              {
+                "groupName": "Provisional",
+                "voteCount": 0,
+                "isFromVirtualPrecinct": false
+              },
+              {
+                "groupName": "Post-Election",
+                "voteCount": 0,
+                "isFromVirtualPrecinct": false
+              }
+            ],
+            "precinctResults": null
+          },
+          {
+            "id": "cs237",
+            "name": "Tony A. Sabio",
+            "ballotOrder": 2,
+            "voteCount": 0,
+            "politicalParty": "Republican",
+            "groupResults": [
+              {
+                "groupName": "Early Voting",
+                "voteCount": 0,
+                "isFromVirtualPrecinct": false
+              },
+              {
+                "groupName": "Election Day",
+                "voteCount": 0,
+                "isFromVirtualPrecinct": false
+              },
+              {
+                "groupName": "Mailed Absentee",
+                "voteCount": 0,
+                "isFromVirtualPrecinct": false
+              },
+              {
+                "groupName": "Provisional",
+                "voteCount": 0,
+                "isFromVirtualPrecinct": false
+              },
+              {
+                "groupName": "Post-Election",
+                "voteCount": 0,
+                "isFromVirtualPrecinct": false
+              }
+            ],
+            "precinctResults": null
+          },
+          {
+            "id": "cs238",
+            "name": "Shelly M. Arnoldi",
+            "ballotOrder": 3,
+            "voteCount": 0,
+            "politicalParty": "Libertarian",
+            "groupResults": [
+              {
+                "groupName": "Early Voting",
+                "voteCount": 0,
+                "isFromVirtualPrecinct": false
+              },
+              {
+                "groupName": "Election Day",
+                "voteCount": 0,
+                "isFromVirtualPrecinct": false
+              },
+              {
+                "groupName": "Mailed Absentee",
+                "voteCount": 0,
+                "isFromVirtualPrecinct": false
+              },
+              {
+                "groupName": "Provisional",
+                "voteCount": 0,
+                "isFromVirtualPrecinct": false
+              },
+              {
+                "groupName": "Post-Election",
+                "voteCount": 0,
+                "isFromVirtualPrecinct": false
+              }
+            ],
+            "precinctResults": null
+          },
+          {
+            "id": "cs239",
+            "name": "Tim S. Sharman",
+            "ballotOrder": 4,
+            "voteCount": 0,
+            "politicalParty": "Independent",
+            "groupResults": [
+              {
+                "groupName": "Early Voting",
+                "voteCount": 0,
+                "isFromVirtualPrecinct": false
+              },
+              {
+                "groupName": "Election Day",
+                "voteCount": 0,
+                "isFromVirtualPrecinct": false
+              },
+              {
+                "groupName": "Mailed Absentee",
+                "voteCount": 0,
+                "isFromVirtualPrecinct": false
+              },
+              {
+                "groupName": "Provisional",
+                "voteCount": 0,
+                "isFromVirtualPrecinct": false
+              },
+              {
+                "groupName": "Post-Election",
+                "voteCount": 0,
+                "isFromVirtualPrecinct": false
+              }
+            ],
+            "precinctResults": null
+          },
+          {
+            "id": "wi-cc115",
+            "name": "Write-In",
+            "ballotOrder": 5,
+            "voteCount": 0,
+            "politicalParty": null,
+            "groupResults": [
+              {
+                "groupName": "Early Voting",
+                "voteCount": 0,
+                "isFromVirtualPrecinct": false
+              },
+              {
+                "groupName": "Election Day",
+                "voteCount": 0,
+                "isFromVirtualPrecinct": false
+              },
+              {
+                "groupName": "Mailed Absentee",
+                "voteCount": 0,
+                "isFromVirtualPrecinct": false
+              },
+              {
+                "groupName": "Provisional",
+                "voteCount": 0,
+                "isFromVirtualPrecinct": false
+              },
+              {
+                "groupName": "Post-Election",
+                "voteCount": 0,
+                "isFromVirtualPrecinct": false
+              }
+            ],
+            "precinctResults": null
+          }
+        ],
+        "rankedChoiceResults": null
+      },
+      {
+        "type": "State",
+        "id": "cc354",
+        "name": "Member, House of Representatives (9th District)",
+        "voteFor": 1,
+        "ballotOrder": 10,
+        "precinctsParticipating": null,
+        "precinctsReporting": null,
+        "contestType": "Candidate",
+        "ballotOptions": [
+          {
+            "id": "cs790",
+            "name": "Joy A. Powers",
+            "ballotOrder": 1,
+            "voteCount": 0,
+            "politicalParty": "Democratic",
+            "groupResults": [
+              {
+                "groupName": "Early Voting",
+                "voteCount": 0,
+                "isFromVirtualPrecinct": false
+              },
+              {
+                "groupName": "Election Day",
+                "voteCount": 0,
+                "isFromVirtualPrecinct": false
+              },
+              {
+                "groupName": "Mailed Absentee",
+                "voteCount": 0,
+                "isFromVirtualPrecinct": false
+              },
+              {
+                "groupName": "Provisional",
+                "voteCount": 0,
+                "isFromVirtualPrecinct": false
+              },
+              {
+                "groupName": "Post-Election",
+                "voteCount": 0,
+                "isFromVirtualPrecinct": false
+              }
+            ],
+            "precinctResults": null
+          },
+          {
+            "id": "cs791",
+            "name": "H. Morgan Griffith",
+            "ballotOrder": 2,
+            "voteCount": 0,
+            "politicalParty": "Republican",
+            "groupResults": [
+              {
+                "groupName": "Early Voting",
+                "voteCount": 0,
+                "isFromVirtualPrecinct": false
+              },
+              {
+                "groupName": "Election Day",
+                "voteCount": 0,
+                "isFromVirtualPrecinct": false
+              },
+              {
+                "groupName": "Mailed Absentee",
+                "voteCount": 0,
+                "isFromVirtualPrecinct": false
+              },
+              {
+                "groupName": "Provisional",
+                "voteCount": 0,
+                "isFromVirtualPrecinct": false
+              },
+              {
+                "groupName": "Post-Election",
+                "voteCount": 0,
+                "isFromVirtualPrecinct": false
+              }
+            ],
+            "precinctResults": null
+          },
+          {
+            "id": "wi-cc354",
+            "name": "Write-In",
+            "ballotOrder": 3,
+            "voteCount": 0,
+            "politicalParty": null,
+            "groupResults": [
+              {
+                "groupName": "Early Voting",
+                "voteCount": 0,
+                "isFromVirtualPrecinct": false
+              },
+              {
+                "groupName": "Election Day",
+                "voteCount": 0,
+                "isFromVirtualPrecinct": false
+              },
+              {
+                "groupName": "Mailed Absentee",
+                "voteCount": 0,
+                "isFromVirtualPrecinct": false
+              },
+              {
+                "groupName": "Provisional",
+                "voteCount": 0,
+                "isFromVirtualPrecinct": false
+              },
+              {
+                "groupName": "Post-Election",
+                "voteCount": 0,
+                "isFromVirtualPrecinct": false
+              }
+            ],
+            "precinctResults": null
+          }
+        ],
+        "rankedChoiceResults": null
+      },
+      {
+        "type": "State",
+        "id": "cc365",
+        "name": "Member, House of Representatives (10th District)",
+        "voteFor": 1,
+        "ballotOrder": 11,
+        "precinctsParticipating": null,
+        "precinctsReporting": null,
+        "contestType": "Candidate",
+        "ballotOptions": [
+          {
+            "id": "cs823",
+            "name": "Suhas Subramanyam",
+            "ballotOrder": 1,
+            "voteCount": 0,
+            "politicalParty": "Democratic",
+            "groupResults": [
+              {
+                "groupName": "Early Voting",
+                "voteCount": 0,
+                "isFromVirtualPrecinct": false
+              },
+              {
+                "groupName": "Election Day",
+                "voteCount": 0,
+                "isFromVirtualPrecinct": false
+              },
+              {
+                "groupName": "Mailed Absentee",
+                "voteCount": 0,
+                "isFromVirtualPrecinct": false
+              },
+              {
+                "groupName": "Provisional",
+                "voteCount": 0,
+                "isFromVirtualPrecinct": false
+              },
+              {
+                "groupName": "Post-Election",
+                "voteCount": 0,
+                "isFromVirtualPrecinct": false
+              }
+            ],
+            "precinctResults": null
+          },
+          {
+            "id": "cs824",
+            "name": "Dave T. Beckwith",
+            "ballotOrder": 2,
+            "voteCount": 0,
+            "politicalParty": "Republican",
+            "groupResults": [
+              {
+                "groupName": "Early Voting",
+                "voteCount": 0,
+                "isFromVirtualPrecinct": false
+              },
+              {
+                "groupName": "Election Day",
+                "voteCount": 0,
+                "isFromVirtualPrecinct": false
+              },
+              {
+                "groupName": "Mailed Absentee",
+                "voteCount": 0,
+                "isFromVirtualPrecinct": false
+              },
+              {
+                "groupName": "Provisional",
+                "voteCount": 0,
+                "isFromVirtualPrecinct": false
+              },
+              {
+                "groupName": "Post-Election",
+                "voteCount": 0,
+                "isFromVirtualPrecinct": false
+              }
+            ],
+            "precinctResults": null
+          },
+          {
+            "id": "cs825",
+            "name": "Ahsen Mujeeb Malik",
+            "ballotOrder": 3,
+            "voteCount": 0,
+            "politicalParty": "Independent",
+            "groupResults": [
+              {
+                "groupName": "Early Voting",
+                "voteCount": 0,
+                "isFromVirtualPrecinct": false
+              },
+              {
+                "groupName": "Election Day",
+                "voteCount": 0,
+                "isFromVirtualPrecinct": false
+              },
+              {
+                "groupName": "Mailed Absentee",
+                "voteCount": 0,
+                "isFromVirtualPrecinct": false
+              },
+              {
+                "groupName": "Provisional",
+                "voteCount": 0,
+                "isFromVirtualPrecinct": false
+              },
+              {
+                "groupName": "Post-Election",
+                "voteCount": 0,
+                "isFromVirtualPrecinct": false
+              }
+            ],
+            "precinctResults": null
+          },
+          {
+            "id": "wi-cc365",
+            "name": "Write-In",
+            "ballotOrder": 4,
+            "voteCount": 0,
+            "politicalParty": null,
+            "groupResults": [
+              {
+                "groupName": "Early Voting",
+                "voteCount": 0,
+                "isFromVirtualPrecinct": false
+              },
+              {
+                "groupName": "Election Day",
+                "voteCount": 0,
+                "isFromVirtualPrecinct": false
+              },
+              {
+                "groupName": "Mailed Absentee",
+                "voteCount": 0,
+                "isFromVirtualPrecinct": false
+              },
+              {
+                "groupName": "Provisional",
+                "voteCount": 0,
+                "isFromVirtualPrecinct": false
+              },
+              {
+                "groupName": "Post-Election",
+                "voteCount": 0,
+                "isFromVirtualPrecinct": false
+              }
+            ],
+            "precinctResults": null
+          }
+        ],
+        "rankedChoiceResults": null
+      },
+      {
+        "type": "State",
+        "id": "cc105",
+        "name": "Member, House of Representatives (11th District)",
+        "voteFor": 1,
+        "ballotOrder": 12,
+        "precinctsParticipating": null,
+        "precinctsReporting": null,
+        "contestType": "Candidate",
+        "ballotOptions": [
+          {
+            "id": "cs218",
+            "name": "James R. Walkinshaw",
+            "ballotOrder": 1,
+            "voteCount": 0,
+            "politicalParty": "Democratic",
+            "groupResults": [
+              {
+                "groupName": "Early Voting",
+                "voteCount": 0,
+                "isFromVirtualPrecinct": false
+              },
+              {
+                "groupName": "Election Day",
+                "voteCount": 0,
+                "isFromVirtualPrecinct": false
+              },
+              {
+                "groupName": "Mailed Absentee",
+                "voteCount": 0,
+                "isFromVirtualPrecinct": false
+              },
+              {
+                "groupName": "Provisional",
+                "voteCount": 0,
+                "isFromVirtualPrecinct": false
+              },
+              {
+                "groupName": "Post-Election",
+                "voteCount": 0,
+                "isFromVirtualPrecinct": false
+              }
+            ],
+            "precinctResults": null
+          },
+          {
+            "id": "cs219",
+            "name": "Arthur G. Purves",
+            "ballotOrder": 2,
+            "voteCount": 0,
+            "politicalParty": "Republican",
+            "groupResults": [
+              {
+                "groupName": "Early Voting",
+                "voteCount": 0,
+                "isFromVirtualPrecinct": false
+              },
+              {
+                "groupName": "Election Day",
+                "voteCount": 0,
+                "isFromVirtualPrecinct": false
+              },
+              {
+                "groupName": "Mailed Absentee",
+                "voteCount": 0,
+                "isFromVirtualPrecinct": false
+              },
+              {
+                "groupName": "Provisional",
+                "voteCount": 0,
+                "isFromVirtualPrecinct": false
+              },
+              {
+                "groupName": "Post-Election",
+                "voteCount": 0,
+                "isFromVirtualPrecinct": false
+              }
+            ],
+            "precinctResults": null
+          },
+          {
+            "id": "cs220",
+            "name": "Dianne L. Blais",
+            "ballotOrder": 3,
+            "voteCount": 0,
+            "politicalParty": "Green",
+            "groupResults": [
+              {
+                "groupName": "Early Voting",
+                "voteCount": 0,
+                "isFromVirtualPrecinct": false
+              },
+              {
+                "groupName": "Election Day",
+                "voteCount": 0,
+                "isFromVirtualPrecinct": false
+              },
+              {
+                "groupName": "Mailed Absentee",
+                "voteCount": 0,
+                "isFromVirtualPrecinct": false
+              },
+              {
+                "groupName": "Provisional",
+                "voteCount": 0,
+                "isFromVirtualPrecinct": false
+              },
+              {
+                "groupName": "Post-Election",
+                "voteCount": 0,
+                "isFromVirtualPrecinct": false
+              }
+            ],
+            "precinctResults": null
+          },
+          {
+            "id": "wi-cc105",
+            "name": "Write-In",
+            "ballotOrder": 4,
+            "voteCount": 0,
+            "politicalParty": null,
+            "groupResults": [
+              {
+                "groupName": "Early Voting",
+                "voteCount": 0,
+                "isFromVirtualPrecinct": false
+              },
+              {
+                "groupName": "Election Day",
+                "voteCount": 0,
+                "isFromVirtualPrecinct": false
+              },
+              {
+                "groupName": "Mailed Absentee",
+                "voteCount": 0,
+                "isFromVirtualPrecinct": false
+              },
+              {
+                "groupName": "Provisional",
+                "voteCount": 0,
+                "isFromVirtualPrecinct": false
+              },
+              {
+                "groupName": "Post-Election",
+                "voteCount": 0,
+                "isFromVirtualPrecinct": false
+              }
+            ],
+            "precinctResults": null
+          }
+        ],
+        "rankedChoiceResults": null
+      }
+    ]
+  }
+}

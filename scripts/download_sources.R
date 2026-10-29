@@ -1,0 +1,13 @@
+# Optional maintenance script. Normal app use needs no source downloads.
+options(timeout = 120)
+download.file("https://clerk.house.gov/member_info/electionInfo/2024/statistics2024.pdf", "data/raw/statistics2024.pdf", mode = "wb")
+if (!nzchar(Sys.which("pdftotext"))) stop("Install Poppler (pdftotext), then rerun this script. The bundled CSV still works.")
+status <- system2("pdftotext", c("-layout", "data/raw/statistics2024.pdf", "data/raw/statistics2024.txt"))
+if (status != 0) stop("PDF text extraction failed.")
+download.file("https://docs.google.com/spreadsheets/d/1ng1i_Dm_RMDnEvauH44pgE6JCUsapcuu8F2pCfeLWFo/export?format=csv&gid=1491069057", "data/raw/president_2024_on_2024_lines.csv", mode = "wb")
+download.file("https://docs.google.com/spreadsheets/d/1eZfaFI-c-PFOoKx1-zZA2MP0_dxRq_LVK0re3BOQqy0/export?format=csv&gid=1491069057", "data/raw/president_2024_on_2026_lines.csv", mode = "wb")
+source("scripts/build_baseline.R")
+source("scripts/build_presidential.R")
+source("scripts/build_replay.R")
+source("scripts/download_history_sources.R")
+source("scripts/download_presidential_history_sources.R")

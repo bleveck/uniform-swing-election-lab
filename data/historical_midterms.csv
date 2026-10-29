@@ -1,0 +1,21 @@
+"year","baseline_year","president","president_party","included","exclusion","n_districts","n_changed_state_pairs","changed_states","d_swing_pp","against_president_pp","district_sd_pp"
+1946,1944,"Truman","D",TRUE,"",327,10,"tennessee",-5.02826382262997,5.02826382262997,5.87535905924481
+1950,1948,"Truman","D",TRUE,"",312,0,"",-2.82717705128205,2.82717705128205,5.51623576455601
+1954,1952,"Eisenhower","R",TRUE,"",286,30,"pennsylvania",4.28955898601399,4.28955898601399,5.22080597748299
+1958,1956,"Eisenhower","R",TRUE,"",315,33,"alaska; hawaii; texas; washington",6.9045459047619,6.9045459047619,5.43402022769697
+1962,1960,"Kennedy","D",FALSE,"Post-census redistricting cycle",0,0,"",,,
+1966,1964,"Johnson","D",TRUE,"",176,237,"alabama; arizona; arkansas; florida; idaho; illinois; indiana; kansas; kentucky; maryland; mississippi; missouri; montana; new jersey; north carolina; ohio; oregon; pennsylvania; south carolina; south dakota; tennessee; texas; utah; virginia",-5.44785340909091,5.44785340909091,7.56761396755371
+1970,1968,"Nixon","R",TRUE,"",307,70,"arizona; hawaii; louisiana; missouri; new hampshire; new york",4.06236941368078,4.06236941368078,7.63601502970526
+1974,1972,"Ford","R",TRUE,"",265,106,"california; new york; texas",6.97185033962264,6.97185033962264,9.87341399774761
+1978,1976,"Carter","D",TRUE,"",339,0,"",-2.08570876106195,2.08570876106195,10.1697675334184
+1982,1980,"Reagan","R",FALSE,"Post-census redistricting cycle",0,0,"",,,
+1986,1984,"Reagan","R",TRUE,"",303,21,"ohio",3.38591174917492,3.38591174917492,7.93935489789448
+1990,1988,"G. H. W. Bush","R",TRUE,"",300,0,"",0.961273433333334,0.961273433333334,9.1835757615196
+1994,1992,"Clinton","D",TRUE,"",355,23,"louisiana; maine; minnesota; south carolina",-5.79217045524693,5.79217045524693,7.74600446454498
+1998,1996,"Clinton","D",TRUE,"",288,54,"new york; north carolina; virginia",0.488416758682218,-0.488416758682218,6.78201867451562
+2002,2000,"G. W. Bush","R",FALSE,"Post-census redistricting cycle",0,0,"",,,
+2006,2004,"G. W. Bush","R",TRUE,"",303,45,"georgia; texas",4.6772133265271,4.6772133265271,5.73395887198641
+2010,2008,"Obama","D",TRUE,"",360,0,"",-7.32083592016986,7.32083592016986,6.43217985944575
+2014,2012,"Obama","D",TRUE,"",329,0,"",-3.50148156468544,3.50148156468544,4.31418616577808
+2018,2016,"Trump","R",TRUE,"",317,18,"pennsylvania",4.44622894818811,4.44622894818811,4.87622934023254
+2022,2020,"Biden","D",FALSE,"Post-census redistricting cycle",0,0,"",,,
