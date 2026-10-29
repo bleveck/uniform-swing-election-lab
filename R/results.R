@@ -28,3 +28,27 @@ validate_results <- function(x, expected_date = "2026-11-03") {
 }
 
 `%||%` <- function(a, b) if (is.null(a) || !length(a)) b else a
+
+# Browser CSVs are small: deliver them as data URLs instead of asking the browser
+# download manager to navigate a virtual service-worker attachment endpoint.
+lab_download_button <- function(...) {
+  tag <- shiny::downloadButton(...)
+  if (isTRUE(getOption("election_lab.browser", FALSE))) {
+    tag$attribs$class <- sub("shiny-download-link", "browser-csv-link", tag$attribs$class, fixed = TRUE)
+  }
+  tag
+}
+
+lab_download_handler <- function(filename, content, ...) {
+  if (!isTRUE(getOption("election_lab.browser", FALSE))) {
+    return(shiny::downloadHandler(filename = filename, content = content, ...))
+  }
+  shiny::renderText({
+    path <- tempfile(fileext = ".csv")
+    on.exit(unlink(path))
+    content(path)
+    bytes <- readBin(path, "raw", n = file.info(path)$size)
+    jsonlite::toJSON(list(filename = if (is.function(filename)) filename() else filename,
+      href = paste0("data:text/csv;base64,", gsub("[\r\n]", "", jsonlite::base64_enc(bytes)))), auto_unbox = TRUE)
+  })
+}

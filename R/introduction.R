@@ -204,7 +204,7 @@ introduction_ui <- function(ca13_returns) {
           tags$a(href = "https://github.com/JeffreyBLewis/congressional-district-boundaries", "Lewis et al."), ". Presidential-reference data: ",
           tags$a(href = "https://doi.org/10.7910/DVN/29559", "Gary Jacobson"), " and ",
           tags$a(href = "https://www.shirokuriwaki.com/ccesMRPprep/reference/cd_info.html", "The Downballot / ccesMRPprep"), "."),
-        downloadButton("intro_history_download", "Download the plotted district pairs"))),
+        lab_download_button("intro_history_download", "Download the plotted district pairs"))),
     tags$section(id = "incomplete-returns", class = "story-section",
       story_heading("03", "An unfinished count can tell different stories.", "Change the reporting order while holding every vote fixed."),
       panel("Same electorate. Same final result. Different first impressions.", "CONTROLLED TOY EXAMPLE · Ten batches of 1,000 votes: five are 70% D, five are 40% D. The final result is always 55% D, up from 52% in the previous election.",
@@ -301,7 +301,7 @@ introduction_server <- function(input, output, session, districts, history, prio
     shiny::tags$p(class = "bin-summary", text)
   })
   output$intro_replay_plot <- shiny::renderPlot(intro_replay_plot(chosen()$path, step(), chosen()$prior$mean_pp, reference()), res = 110)
-  output$intro_history_download <- shiny::downloadHandler(filename = "historical_plotted_district_pairs.csv", content = function(file) utils::write.csv(chosen()$districts, file, row.names = FALSE))
+  output$intro_history_download <- lab_download_handler(filename = "historical_plotted_district_pairs.csv", content = function(file) utils::write.csv(chosen()$districts, file, row.names = FALSE))
   shiny::observeEvent(input$intro_open_lab, {
     shiny::updateRadioButtons(session, "mode", selected = "replay")
     shiny::updateSelectInput(session, "baseline", selected = reference())

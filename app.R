@@ -37,6 +37,7 @@ ui <- fluidPage(
   theme = bslib::bs_theme(version = 5, bg = "#f3f5f7", fg = "#172f46", primary = "#2165ad",
     base_font = "system-ui", heading_font = "system-ui"),
   tags$head(tags$link(rel = "stylesheet", type = "text/css", href = "style.css"),
+    if (browser_runtime) tags$script(src = "browser-csv.js"),
     tags$script(HTML("$(function() { $(document).on('shown.bs.tab', '#page a[data-value]', function() { window.scrollTo(0, 0); }); });"))),
   tags$header(class = "masthead",
     tags$div(class = "eyebrow", "ELECTION NIGHT LAB / CLASSROOM EDITION"),
@@ -73,14 +74,14 @@ ui <- fluidPage(
         tags$p(class = "small-note", "One instructor laptop collects VA, NC, and OH every five minutes. Everyone reads the same shared file. KY-06 appears when the instructor supplies a manual entry."),
         tags$p(class = "small-note", "The laptop must keep running. Fetch failures retain previous totals; data older than 15 minutes are labeled STALE. Preparation/test data remain excluded.")),
       conditionalPanel("input.mode == 'csv'", fileInput("upload", "Cumulative district totals (.csv)", accept = ".csv"),
-        downloadButton("template", "Download CSV template")),
+        lab_download_button("template", "Download CSV template")),
       tags$hr(),
       numericInput("min_votes", "Minimum D + R votes per district", value = 1000, min = 1, step = 1000),
       selectizeInput("exclude", "Exclude districts", choices = watch_districts, multiple = TRUE,
         options = list(placeholder = "Choose any district…")),
       tags$p(class = "small-note", "Every included district gets one equal vote in the average. The vote threshold is a filter, not a correction for reporting bias."),
       tags$hr(),
-      downloadButton("download", "Download district calculation"),
+      lab_download_button("download", "Download district calculation"),
       tags$p(class = "small-note", "Teaching idea: exclude the biggest outlier. How much does the implied House change?")),
     tags$main(
       uiOutput("mode_banner"), uiOutput("problem"),
@@ -102,7 +103,7 @@ ui <- fluidPage(
             uiOutput("history_note"),
             tags$p("Republican presidents’ midterm D-share gains and Democratic presidents’ midterm D-share losses are both positive on this history axis. Gains for the president’s party remain in the sample with a negative sign. For 2026, positive swing against the Republican president means positive Democratic swing."),
             tags$div(class = "table-scroll", tableOutput("history_table")),
-            downloadButton("history_download", "Download historical prior sample"))),
+            lab_download_button("history_download", "Download historical prior sample"))),
         tabPanel("Redistricting",
           panel("Compare the same election on two maps", "2024 Harris two-party share, before and after redistricting. A share change is half the change in the D–R margin.",
             tags$p("The presidential option uses a consistent 2026 map nationwide. Its estimate is a cross-office difference: 2026 House vote share minus 2024 presidential vote share. It is not a House-to-House swing."),
@@ -318,7 +319,7 @@ server <- function(input, output, session) {
       `New-map Harris share` = pct(x$new_d_share), `Share change (pp)` = sprintf("%+.2f", x$share_change_pp),
       `D–R margin change (pp)` = sprintf("%+.2f", x$margin_change_pp), check.names = FALSE)
   }, striped = TRUE)
-  output$download <- downloadHandler(filename = function() paste0("swing-calculation-", input$mode, ".csv"),
+  output$download <- lab_download_handler(filename = function() paste0("swing-calculation-", input$mode, ".csv"),
     content = function(file) {
       x <- estimate()$districts
       x$raw_mean_pp <- estimate()$swing_pp
@@ -328,9 +329,9 @@ server <- function(input, output, session) {
       x$selected_swing_pp <- selected_swing()
       write.csv(x, file, row.names = FALSE, na = "")
     })
-  output$history_download <- downloadHandler(filename = "historical-midterm-prior.csv",
+  output$history_download <- lab_download_handler(filename = "historical-midterm-prior.csv",
     content = function(file) write.csv(active_history(), file, row.names = FALSE, na = ""))
-  output$template <- downloadHandler(filename = "results-template.csv", content = function(file) file.copy("data/results_template.csv", file))
+  output$template <- lab_download_handler(filename = "results-template.csv", content = function(file) file.copy("data/results_template.csv", file))
 }
 
 shinyApp(ui, server)

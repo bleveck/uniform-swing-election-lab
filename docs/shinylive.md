@@ -33,6 +33,10 @@ GitHub Pages is configured to use **GitHub Actions**. On a push to `main`, `.git
 
 The workflow uses GitHub's short-lived token, with no Posit credentials or collector credentials in the site. Source data, scripts, and tests remain in the repository; the exported browser bundle contains only the teaching app's runtime data and code.
 
+The historical introduction, actual CA-13 replay, both reference models, and shared snapshot retrieval were exercised in a Chromium browser. CSV downloads are generated as small data URLs inside webR, avoiding virtual attachment navigation; ordinary R hosting continues to use Shiny's standard download handler. CSV inputs are read inside the browser.
+
+Safari on the development Mac loaded the interface but stalled before reactive results appeared, both locally and on GitHub Pages. That browser combination is not verified. Use Chromium for this version or use the Posit app as a fallback. An [upstream report](https://github.com/posit-dev/shinylive/issues/252) describes machine-specific Safari failures, although the cause of this instance has not been established.
+
 The first visit downloads R and its packages and takes longer than an ordinary page. The app opens in synthetic replay mode. Historical examples do not require the collector; shared incoming returns require an internet connection and a running collector for fresh data. Browser computations use each student's device. Test the intended classroom browsers before class; large district-label plots can take longer on slower devices.
 
 References: [Shinylive for R](https://posit-dev.github.io/r-shinylive/), [webR networking](https://docs.r-wasm.org/webr/latest/networking.html), and [GitHub Pages custom workflows](https://docs.github.com/en/pages/getting-started-with-github-pages/using-custom-workflows-with-github-pages).

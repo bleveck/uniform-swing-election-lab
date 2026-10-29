@@ -205,7 +205,7 @@ Source: [bleveck/uniform-swing-election-lab](https://github.com/bleveck/uniform-
 
 Published to Connect Cloud on October 29, 2026. The public introduction, CA-13 replay, both Bayesian references, and CSV download were checked in a fresh browser session. Direct requests from Posit fetched North Carolina successfully, but Virginia and Ohio returned HTTP 403; the same feed code succeeded locally for all three states. **Shared laptop snapshots** provides the common data path for the hosted app. See [the collector guide](docs/collector.md) and [deployment guide](docs/deployment.md).
 
-The publishing setup uses a public GitHub repository, `manifest.json`, and a checked publishing branch. The manifest pins R 4.5.2 and the 47 runtime packages, and includes only the 21 files needed to run the app. Raw source archives, rebuild scripts, tests, and documentation remain available in GitHub.
+The publishing setup uses a public GitHub repository, `manifest.json`, and a checked publishing branch. The manifest pins R 4.5.2 and the 47 runtime packages, and includes only the 22 files needed to run the app. Raw source archives, rebuild scripts, tests, and documentation remain available in GitHub.
 
 On every push to `main`, GitHub Actions installs the pinned runtime packages, checks the deployment bundle, and runs the model, data, parser, and Shiny tests. Only a successful run advances **`codex/publish`**, the branch Connect Cloud should watch. Pull requests run the same checks without publishing. No Posit API key is needed in GitHub.
 

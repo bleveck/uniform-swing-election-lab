@@ -68,7 +68,7 @@ ca13_history_ui <- function(snapshots) {
       tags$p(tags$a(href = "https://www.calvoter.org/content/close-count-transparency-project", "California Voter Foundation: project and methodology"), " · ",
         tags$a(href = "https://docs.google.com/spreadsheets/d/1_sHIMjAD-bbgn7MsKLb9_U3bJQyB6FVq/edit", "Original tracking workbook (CD-13 tab)"), " · ",
         tags$a(href = "https://elections.cdn.sos.ca.gov/sov/2024-general/sov/06-sov-summary.pdf", "California Secretary of State: certified results")),
-      downloadButton("ca13_download", "Download the recorded CA-13 snapshots")))
+      lab_download_button("ca13_download", "Download the recorded CA-13 snapshots")))
 }
 
 ca13_history_server <- function(input, output, snapshots) {
@@ -90,7 +90,7 @@ ca13_history_server <- function(input, output, snapshots) {
       format(x$gray_votes, big.mark = ","), format(x$duarte_votes, big.mark = ",")))
   })
   output$ca13_plot <- shiny::renderPlot(ca13_returns_plot(snapshots, selected(), input$ca13_metric %||% "votes"), res = 110)
-  output$ca13_download <- shiny::downloadHandler(filename = "CA-13_2024_recorded_returns.csv", content = function(file) {
+  output$ca13_download <- lab_download_handler(filename = "CA-13_2024_recorded_returns.csv", content = function(file) {
     utils::write.csv(snapshots[, !names(snapshots) %in% c("source_clock_day", "leader")], file, row.names = FALSE)
   })
 }

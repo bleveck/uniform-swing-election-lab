@@ -1486,7 +1486,7 @@
   },
   "files": {
     "app.R": {
-      "checksum": "b3164b4f035406fe901099771b564e9e"
+      "checksum": "1be5709655e8fc56858e25d41c448ac2"
     },
     "data/ca13_2024_returns.csv": {
       "checksum": "2754cbab1aa35dd239a61f063e4bef9f"
@@ -1531,10 +1531,10 @@
       "checksum": "0d9bd12e320108228ad03683598d89ff"
     },
     "R/historical_returns.R": {
-      "checksum": "0a490307881e1f3d34498c8e03851f45"
+      "checksum": "e76f32ef8426d644b20251a78077d4f2"
     },
     "R/introduction.R": {
-      "checksum": "507c924f3cc2f6b211c2072215db2dcb"
+      "checksum": "27f22f386dea983df58470d34e3a5fe1"
     },
     "R/model.R": {
       "checksum": "fb3cc373ee64ab76f721007b5948de5e"
@@ -1543,7 +1543,10 @@
       "checksum": "014e23e4953696954b5122525b2e7c17"
     },
     "R/results.R": {
-      "checksum": "2e3ac0a161b0bc6fc4626d04ddcc46a5"
+      "checksum": "ee9ded583774acf950b1aaa3c4bf46e9"
+    },
+    "www/browser-csv.js": {
+      "checksum": "3f43644f5eff23a7216289561cf627b1"
     },
     "www/style.css": {
       "checksum": "d114132bcff9cb5411bef6dc52f896fa"
