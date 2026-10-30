@@ -1,5 +1,7 @@
 # Laptop collector
 
+For the short operational sequence on Brad’s Mac, see the [election-night cheat sheet](election-night-cheat-sheet.md).
+
 One instructor laptop fetches the official VA, NC, and OH feeds. It publishes one small public JSON snapshot to the separate [`codex/snapshots` branch](https://github.com/bleveck/uniform-swing-election-lab/tree/codex/snapshots). The hosted app reads that file instead of contacting the states from Posit. Data publications do not rebuild or redeploy the app.
 
 ## Start on election night
@@ -21,9 +23,19 @@ Leave Terminal and the laptop open and connected to the internet. `caffeinate -i
 
 In the hosted app choose **Election-night lab → Shared laptop snapshots**. It loads the published file immediately and checks for updates every minute by default. The minimum collection interval is five minutes; change it with `--interval=600`, for example, for ten minutes. The app's checks only read the shared file and create no additional requests to the states.
 
-## Optional Kentucky entry
+## Optional Kentucky XML import
 
-Create a CSV containing exactly KY-06, using the same required columns as the app's CSV template:
+The [Kentucky import guide](kentucky-import.md) explains how to use Safari’s **Download Linked File As…** command to save six official XML datasets in `data/live/ky-downloads`. This manual route was verified with the 2026 preparation files on October 30. Start the collector with:
+
+```sh
+caffeinate -i Rscript scripts/collect_results.R --watch --publish --ky-dir=data/live/ky-downloads
+```
+
+Each round transforms local files into `data/live/ky-import.csv` and includes KY-06 in the shared snapshot. It makes no Kentucky network requests. Refresh the current-results file manually; the importer preserves its download modification time. Missing or invalid files retain the last valid KY totals with an error status, while the other states can update. For a standalone conversion without fetching states or publishing, run `Rscript scripts/import_ky.R`.
+
+## Optional Kentucky hand entry
+
+Alternatively, create a CSV containing exactly KY-06, using the same required columns as the app's CSV template. Choose either `--ky-file` or `--ky-dir`, not both:
 
 ```csv
 district_id,d_votes_current,r_votes_current,election_date
@@ -62,4 +74,4 @@ GitHub delivery can add some caching delay. The reader uses a shared minute-base
 - `scripts/collect_results.R`: one-shot and foreground polling commands.
 - `tests/test_collector.R`: preparation flags, outages, stale clocks, malformed data, KY entry times, publication conflicts, and Shiny integration.
 
-For a local-only collection, omit `--publish`. The JSON snapshot is still saved and can be inspected in R. The existing `scripts/fetch_live.R` remains available for a CSV export suitable for manual upload. A Shinylive app can use the same public snapshot reader's basic `download.file()` GET; this work does not itself create a Shinylive export.
+For a local-only collection, omit `--publish`. The JSON snapshot is still saved and can be inspected in R. The existing `scripts/fetch_live.R` remains available for a CSV export suitable for manual upload. Both hosted versions use the same public snapshot reader's basic `download.file()` GET; see the [Shinylive guide](shinylive.md) for browser hosting.

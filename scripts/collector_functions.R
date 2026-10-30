@@ -1,4 +1,6 @@
 # Laptop-only helpers. These files are not part of the hosted runtime bundle.
+source("scripts/ky_import_functions.R")
+
 collector_json <- function(snapshot) paste0(jsonlite::toJSON(snapshot, auto_unbox = TRUE,
   dataframe = "rows", na = "null", null = "null", digits = NA, pretty = TRUE), "\n")
 
@@ -12,7 +14,8 @@ write_collector_snapshot <- function(snapshot, path) {
 }
 
 collect_results <- function(previous = NULL, ky_file = NULL, interval = 300,
-                            fetch = fetch_feed, clock = Sys.time) {
+                            fetch = fetch_feed, clock = Sys.time, ky_dir = NULL) {
+  if (!is.null(ky_file) && !is.null(ky_dir)) stop("Choose --ky-file or --ky-dir, not both.")
   now <- clock()
   if (!is.null(previous)) previous <- validate_collector_snapshot(previous, now)
   results <- if (is.null(previous)) empty_results() else previous$results
@@ -22,7 +25,7 @@ collect_results <- function(previous = NULL, ky_file = NULL, interval = 300,
   for (state in providers$provider) {
     i <- match(state, providers$provider)
     providers$last_attempt_at[i] <- collector_stamp(clock())
-    if (state == "KY" && is.null(ky_file)) {
+    if (state == "KY" && is.null(ky_file) && is.null(ky_dir)) {
       if (any(substr(results$district_id, 1, 2) == "KY")) {
         providers$status[i] <- "error"
         providers$error[i] <- "Manual file not supplied; previous entry retained."
@@ -34,12 +37,21 @@ collect_results <- function(previous = NULL, ky_file = NULL, interval = 300,
     }
     tryCatch({
       if (state == "KY") {
-        x <- validate_results(read.csv(ky_file, stringsAsFactors = FALSE))
-        if (nrow(x) != 1L || x$district_id != "KY-06") stop("Manual file must contain exactly KY-06.")
-        # Re-reading an unchanged manual file must not make its totals look newer.
-        stamp <- collector_stamp(file.info(ky_file)$mtime)
-        x$fetched_at <- stamp
-        x$source <- "KY SOS manual entry"
+        if (!is.null(ky_dir)) {
+          x <- import_ky_downloads(ky_dir, now = clock())$results
+          stamp <- x$fetched_at
+        } else {
+          x <- validate_results(read.csv(ky_file, stringsAsFactors = FALSE))
+          if (nrow(x) != 1L || x$district_id != "KY-06") stop("Manual file must contain exactly KY-06.")
+          # Re-reading an unchanged manual file must not make its totals look newer.
+          stamp <- collector_stamp(file.info(ky_file)$mtime)
+          x$fetched_at <- stamp
+          x$source <- "KY SOS manual entry"
+        }
+        old_ky <- results[results$district_id == "KY-06", , drop = FALSE]
+        if (nrow(old_ky) && collector_time(old_ky$fetched_at) > collector_time(stamp)) {
+          stop("Kentucky input is older than the retained snapshot.")
+        }
       } else {
         x <- validate_results(fetch(state))
         expected <- watch_districts[substr(watch_districts, 1, 2) == state]

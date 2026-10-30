@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ArrayOfCandidate>
+  <Candidate xmlns="http://schemas.datacontract.org/2004/07/SBE.ENR.Web.Public.Wrappers">
+    <BallotName>Jay J BOWMAN</BallotName>
+    <CandidateId>141</CandidateId>
+    <ContestId>59</ContestId>
+    <IsIncumbent>false</IsIncumbent>
+    <IsWithdrawn>false</IsWithdrawn>
+    <IsWriteIn>false</IsWriteIn>
+    <PoliticalPartyId>6</PoliticalPartyId>
+  </Candidate>
+  <Candidate xmlns="http://schemas.datacontract.org/2004/07/SBE.ENR.Web.Public.Wrappers">
+    <BallotName>Pete LYNCH</BallotName>
+    <CandidateId>142</CandidateId>
+    <ContestId>59</ContestId>
+    <IsIncumbent>false</IsIncumbent>
+    <IsWithdrawn>false</IsWithdrawn>
+    <IsWriteIn>false</IsWriteIn>
+    <PoliticalPartyId>10</PoliticalPartyId>
+  </Candidate>
+  <Candidate xmlns="http://schemas.datacontract.org/2004/07/SBE.ENR.Web.Public.Wrappers">
+    <BallotName>Ralph ALVARADO</BallotName>
+    <CandidateId>139</CandidateId>
+    <ContestId>59</ContestId>
+    <IsIncumbent>false</IsIncumbent>
+    <IsWithdrawn>false</IsWithdrawn>
+    <IsWriteIn>false</IsWriteIn>
+    <PoliticalPartyId>2</PoliticalPartyId>
+  </Candidate>
+  <Candidate xmlns="http://schemas.datacontract.org/2004/07/SBE.ENR.Web.Public.Wrappers">
+    <BallotName>Write-In</BallotName>
+    <CandidateId>138</CandidateId>
+    <ContestId>59</ContestId>
+    <IsIncumbent>false</IsIncumbent>
+    <IsWithdrawn>false</IsWithdrawn>
+    <IsWriteIn>true</IsWriteIn>
+    <PoliticalPartyId>0</PoliticalPartyId>
+  </Candidate>
+  <Candidate xmlns="http://schemas.datacontract.org/2004/07/SBE.ENR.Web.Public.Wrappers">
+    <BallotName>Zach DEMBO</BallotName>
+    <CandidateId>140</CandidateId>
+    <ContestId>59</ContestId>
+    <IsIncumbent>false</IsIncumbent>
+    <IsWithdrawn>false</IsWithdrawn>
+    <IsWriteIn>false</IsWriteIn>
+    <PoliticalPartyId>1</PoliticalPartyId>
+  </Candidate>
+</ArrayOfCandidate>

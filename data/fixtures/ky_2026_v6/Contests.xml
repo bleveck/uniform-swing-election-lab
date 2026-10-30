@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ArrayOfContest>
+  <Contest xmlns="http://schemas.datacontract.org/2004/07/SBE.ENR.Web.Public.Wrappers">
+    <ContestId>59</ContestId>
+    <ContestName>UNITED STATES REPRESENTATIVE in CONGRESS 6th Congressional District</ContestName>
+    <ContestScopeUnitId>2</ContestScopeUnitId>
+    <DisplayOrder>102006000</DisplayOrder>
+    <IsPartisan>true</IsPartisan>
+    <IsUncontested>false</IsUncontested>
+    <IsUnexpiredTerm>false</IsUnexpiredTerm>
+    <PoliticalPartyId>0</PoliticalPartyId>
+    <SelectableOption>1</SelectableOption>
+  </Contest>
+</ArrayOfContest>

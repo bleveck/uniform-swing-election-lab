@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ArrayOfGeopoliticalUnit>
+  <GeopoliticalUnit xmlns="http://schemas.datacontract.org/2004/07/SBE.ENR.Web.Public.Wrappers" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+    <ParentId i:nil="true"/>
+    <UnitId>1</UnitId>
+    <UnitName>United States of America</UnitName>
+    <UnitType>Country</UnitType>
+  </GeopoliticalUnit>
+  <GeopoliticalUnit xmlns="http://schemas.datacontract.org/2004/07/SBE.ENR.Web.Public.Wrappers">
+    <ParentId>1</ParentId>
+    <UnitId>2</UnitId>
+    <UnitName>Kentucky</UnitName>
+    <UnitType>State</UnitType>
+  </GeopoliticalUnit>
+  <GeopoliticalUnit xmlns="http://schemas.datacontract.org/2004/07/SBE.ENR.Web.Public.Wrappers">
+    <ParentId>2</ParentId>
+    <UnitId>5</UnitId>
+    <UnitName>Anderson County</UnitName>
+    <UnitType>County</UnitType>
+  </GeopoliticalUnit>
+  <GeopoliticalUnit xmlns="http://schemas.datacontract.org/2004/07/SBE.ENR.Web.Public.Wrappers">
+    <ParentId>5</ParentId>
+    <UnitId>1648</UnitId>
+    <UnitName>Precinct A101 - LILLARD</UnitName>
+    <UnitType>Precinct</UnitType>
+  </GeopoliticalUnit>
+</ArrayOfGeopoliticalUnit>

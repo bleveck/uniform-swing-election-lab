@@ -40,6 +40,7 @@ The final presidential-reference snapshot gives approximately **D +3.00 percenta
 - Synthetic replay of KY-06; VA-01, VA-02, VA-05; NC-01, NC-11; OH-07, OH-09, OH-10, OH-15.
 - Working official-feed readers for **Virginia JSON, North Carolina ZIP/TSV, and Ohio XML**.
 - A manual CSV fallback, including a KY-06 supplement in live mode.
+- A [Kentucky XML importer](docs/kentucky-import.md) for manually saved official downloads, integrated with the laptop collector.
 - Individual district changes, the average, a swing-to-seats curve, a 435-seat graphic, inclusion decisions, and downloadable calculations.
 - Two explicit baselines: **2024 House on the old map**, or **2024 president on the 2026 map**.
 - An optional **Bayesian Normal-prior estimate**, fitted to historical midterms, with raw/prior/posterior comparisons and analytic arithmetic.
@@ -50,7 +51,9 @@ Only House races enter the estimator. The Senate and governor contests in the re
 
 ## Live mode
 
-For the hosted version, use **Shared laptop snapshots**. The [laptop collector](docs/collector.md) fetches VA, NC, and OH once every five minutes and publishes one public snapshot for everyone. The app checks that file every minute, displays source/collection clocks, and flags stale data. KY-06 can be supplied to the collector as a manual CSV. It runs only when the instructor starts it; no scheduler or background service is installed.
+For election-night startup, Kentucky entry, stopping, and troubleshooting, use the [laptop collector cheat sheet](docs/election-night-cheat-sheet.md).
+
+For the hosted version, use **Shared laptop snapshots**. The [laptop collector](docs/collector.md) fetches VA, NC, and OH once every five minutes and publishes one public snapshot for everyone. The app checks that file every minute, displays source/collection clocks, and flags stale data. KY-06 can be supplied through [manually downloaded XML](docs/kentucky-import.md) or a hand-entered CSV. It runs only when the instructor starts it; no scheduler or background service is installed.
 
 ```sh
 Rscript scripts/collect_results.R --once --publish

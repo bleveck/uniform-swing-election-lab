@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SummaryReport>
+  <CandidateData>
+    <CandidateData xmlns="http://schemas.datacontract.org/2004/07/SBE.ENR.Web.Public.Wrappers">
+      <CandidateId>139</CandidateId>
+      <ContestId>59</ContestId>
+      <ElectionDayVotes>0</ElectionDayVotes>
+      <ReportingUnitId>2</ReportingUnitId>
+      <TotalVotes>0</TotalVotes>
+    </CandidateData>
+    <CandidateData xmlns="http://schemas.datacontract.org/2004/07/SBE.ENR.Web.Public.Wrappers">
+      <CandidateId>140</CandidateId>
+      <ContestId>59</ContestId>
+      <ElectionDayVotes>0</ElectionDayVotes>
+      <ReportingUnitId>2</ReportingUnitId>
+      <TotalVotes>0</TotalVotes>
+    </CandidateData>
+    <CandidateData xmlns="http://schemas.datacontract.org/2004/07/SBE.ENR.Web.Public.Wrappers">
+      <CandidateId>141</CandidateId>
+      <ContestId>59</ContestId>
+      <ElectionDayVotes>0</ElectionDayVotes>
+      <ReportingUnitId>2</ReportingUnitId>
+      <TotalVotes>0</TotalVotes>
+    </CandidateData>
+    <CandidateData xmlns="http://schemas.datacontract.org/2004/07/SBE.ENR.Web.Public.Wrappers">
+      <CandidateId>142</CandidateId>
+      <ContestId>59</ContestId>
+      <ElectionDayVotes>0</ElectionDayVotes>
+      <ReportingUnitId>2</ReportingUnitId>
+      <TotalVotes>0</TotalVotes>
+    </CandidateData>
+    <CandidateData xmlns="http://schemas.datacontract.org/2004/07/SBE.ENR.Web.Public.Wrappers">
+      <CandidateId>139</CandidateId>
+      <ContestId>59</ContestId>
+      <ElectionDayVotes>0</ElectionDayVotes>
+      <ReportingUnitId>5</ReportingUnitId>
+      <TotalVotes>0</TotalVotes>
+    </CandidateData>
+    <CandidateData xmlns="http://schemas.datacontract.org/2004/07/SBE.ENR.Web.Public.Wrappers">
+      <CandidateId>140</CandidateId>
+      <ContestId>59</ContestId>
+      <ElectionDayVotes>0</ElectionDayVotes>
+      <ReportingUnitId>5</ReportingUnitId>
+      <TotalVotes>0</TotalVotes>
+    </CandidateData>
+    <CandidateData xmlns="http://schemas.datacontract.org/2004/07/SBE.ENR.Web.Public.Wrappers">
+      <CandidateId>141</CandidateId>
+      <ContestId>59</ContestId>
+      <ElectionDayVotes>0</ElectionDayVotes>
+      <ReportingUnitId>5</ReportingUnitId>
+      <TotalVotes>0</TotalVotes>
+    </CandidateData>
+    <CandidateData xmlns="http://schemas.datacontract.org/2004/07/SBE.ENR.Web.Public.Wrappers">
+      <CandidateId>142</CandidateId>
+      <ContestId>59</ContestId>
+      <ElectionDayVotes>0</ElectionDayVotes>
+      <ReportingUnitId>5</ReportingUnitId>
+      <TotalVotes>0</TotalVotes>
+    </CandidateData>
+    <CandidateData xmlns="http://schemas.datacontract.org/2004/07/SBE.ENR.Web.Public.Wrappers">
+      <CandidateId>139</CandidateId>
+      <ContestId>59</ContestId>
+      <ElectionDayVotes>0</ElectionDayVotes>
+      <ReportingUnitId>1648</ReportingUnitId>
+      <TotalVotes>0</TotalVotes>
+    </CandidateData>
+    <CandidateData xmlns="http://schemas.datacontract.org/2004/07/SBE.ENR.Web.Public.Wrappers">
+      <CandidateId>140</CandidateId>
+      <ContestId>59</ContestId>
+      <ElectionDayVotes>0</ElectionDayVotes>
+      <ReportingUnitId>1648</ReportingUnitId>
+      <TotalVotes>0</TotalVotes>
+    </CandidateData>
+    <CandidateData xmlns="http://schemas.datacontract.org/2004/07/SBE.ENR.Web.Public.Wrappers">
+      <CandidateId>141</CandidateId>
+      <ContestId>59</ContestId>
+      <ElectionDayVotes>0</ElectionDayVotes>
+      <ReportingUnitId>1648</ReportingUnitId>
+      <TotalVotes>0</TotalVotes>
+    </CandidateData>
+    <CandidateData xmlns="http://schemas.datacontract.org/2004/07/SBE.ENR.Web.Public.Wrappers">
+      <CandidateId>142</CandidateId>
+      <ContestId>59</ContestId>
+      <ElectionDayVotes>0</ElectionDayVotes>
+      <ReportingUnitId>1648</ReportingUnitId>
+      <TotalVotes>0</TotalVotes>
+    </CandidateData>
+    <CandidateData xmlns="http://schemas.datacontract.org/2004/07/SBE.ENR.Web.Public.Wrappers">
+      <CandidateId>138</CandidateId>
+      <ContestId>59</ContestId>
+      <ElectionDayVotes>0</ElectionDayVotes>
+      <ReportingUnitId>2</ReportingUnitId>
+      <TotalVotes>0</TotalVotes>
+    </CandidateData>
+    <CandidateData xmlns="http://schemas.datacontract.org/2004/07/SBE.ENR.Web.Public.Wrappers">
+      <CandidateId>138</CandidateId>
+      <ContestId>59</ContestId>
+      <ElectionDayVotes>0</ElectionDayVotes>
+      <ReportingUnitId>5</ReportingUnitId>
+      <TotalVotes>0</TotalVotes>
+    </CandidateData>
+    <CandidateData xmlns="http://schemas.datacontract.org/2004/07/SBE.ENR.Web.Public.Wrappers">
+      <CandidateId>138</CandidateId>
+      <ContestId>59</ContestId>
+      <ElectionDayVotes>0</ElectionDayVotes>
+      <ReportingUnitId>1648</ReportingUnitId>
+      <TotalVotes>0</TotalVotes>
+    </CandidateData>
+  </CandidateData>
+</SummaryReport>
