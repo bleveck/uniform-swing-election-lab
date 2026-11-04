@@ -1,35 +1,35 @@
 {
   "schema_version": 1,
   "election_date": "2026-11-03",
-  "generated_at": "2026-11-04T02:57:31Z",
+  "generated_at": "2026-11-04T03:04:33Z",
   "poll_interval_seconds": 300,
   "providers": [
     {
       "provider": "VA",
       "status": "ok",
-      "last_attempt_at": "2026-11-04T02:57:29Z",
-      "last_success_at": "2026-11-04T02:57:30Z",
+      "last_attempt_at": "2026-11-04T03:04:29Z",
+      "last_success_at": "2026-11-04T03:04:30Z",
       "error": null
     },
     {
       "provider": "NC",
       "status": "ok",
-      "last_attempt_at": "2026-11-04T02:57:30Z",
-      "last_success_at": "2026-11-04T02:57:31Z",
+      "last_attempt_at": "2026-11-04T03:04:30Z",
+      "last_success_at": "2026-11-04T03:04:32Z",
       "error": null
     },
     {
       "provider": "OH",
       "status": "error",
-      "last_attempt_at": "2026-11-04T02:57:31Z",
+      "last_attempt_at": "2026-11-04T03:04:32Z",
       "last_success_at": "2026-11-04T02:22:03Z",
       "error": "Fetch or validation failed; previous totals retained if available."
     },
     {
       "provider": "KY",
       "status": "ok",
-      "last_attempt_at": "2026-11-04T02:57:31Z",
-      "last_success_at": "2026-11-04T02:57:31Z",
+      "last_attempt_at": "2026-11-04T03:04:32Z",
+      "last_success_at": "2026-11-04T03:04:33Z",
       "error": null
     }
   ],
@@ -40,19 +40,19 @@
       "r_votes_current": 114030,
       "election_date": "2026-11-03",
       "source": "AP via WEKU public KY-06 panel",
-      "fetched_at": "2026-11-04T02:57:31Z",
-      "source_updated_at": "2026-11-04T02:57:06Z",
+      "fetched_at": "2026-11-04T03:04:33Z",
+      "source_updated_at": "2026-11-04T03:03:17Z",
       "is_test": false,
       "_row": "11"
     },
     {
       "district_id": "NC-01",
-      "d_votes_current": 128012,
-      "r_votes_current": 119645,
+      "d_votes_current": 136403,
+      "r_votes_current": 128435,
       "election_date": "2026-11-03",
       "source": "NC SBE precinct ZIP",
-      "fetched_at": "2026-11-04T02:57:31Z",
-      "source_updated_at": "Wed, 04 Nov 2026 02:51:35 GMT",
+      "fetched_at": "2026-11-04T03:04:32Z",
+      "source_updated_at": "Wed, 04 Nov 2026 03:02:51 GMT",
       "is_test": false,
       "_row": "NC-01"
     },
@@ -62,8 +62,8 @@
       "r_votes_current": 140121,
       "election_date": "2026-11-03",
       "source": "NC SBE precinct ZIP",
-      "fetched_at": "2026-11-04T02:57:31Z",
-      "source_updated_at": "Wed, 04 Nov 2026 02:51:35 GMT",
+      "fetched_at": "2026-11-04T03:04:32Z",
+      "source_updated_at": "Wed, 04 Nov 2026 03:02:51 GMT",
       "is_test": false,
       "_row": "NC-11"
     },
@@ -117,30 +117,30 @@
       "r_votes_current": 189586,
       "election_date": "2026-11-03",
       "source": "VA ELECT media JSON",
-      "fetched_at": "2026-11-04T02:57:30Z",
-      "source_updated_at": "2026-11-04T02:57:05.7343496Z",
+      "fetched_at": "2026-11-04T03:04:30Z",
+      "source_updated_at": "2026-11-04T03:03:09.0011333Z",
       "is_test": false,
       "_row": "1"
     },
     {
       "district_id": "VA-02",
-      "d_votes_current": 122864,
-      "r_votes_current": 107492,
+      "d_votes_current": 123467,
+      "r_votes_current": 108634,
       "election_date": "2026-11-03",
       "source": "VA ELECT media JSON",
-      "fetched_at": "2026-11-04T02:57:30Z",
-      "source_updated_at": "2026-11-04T02:57:05.7343496Z",
+      "fetched_at": "2026-11-04T03:04:30Z",
+      "source_updated_at": "2026-11-04T03:03:09.0011333Z",
       "is_test": false,
       "_row": "2"
     },
     {
       "district_id": "VA-05",
-      "d_votes_current": 152630,
-      "r_votes_current": 147955,
+      "d_votes_current": 153117,
+      "r_votes_current": 148784,
       "election_date": "2026-11-03",
       "source": "VA ELECT media JSON",
-      "fetched_at": "2026-11-04T02:57:30Z",
-      "source_updated_at": "2026-11-04T02:57:05.7343496Z",
+      "fetched_at": "2026-11-04T03:04:30Z",
+      "source_updated_at": "2026-11-04T03:03:09.0011333Z",
       "is_test": false,
       "_row": "5"
     }
