@@ -66,7 +66,7 @@ ui <- fluidPage(
       conditionalPanel("input.mode == 'collector'",
         actionButton("refresh_collector", "Load latest shared snapshot", class = "btn-primary"),
         checkboxInput("auto_collector", "Check for updates every minute", TRUE),
-        tags$p(class = "small-note", "Returns are collected on the instructor's laptop every five minutes and shared with everyone. VA, NC, and OH use state election feeds; KY-06 uses AP results via WEKU."),
+        tags$p(class = "small-note", "Returns are collected on the instructor's laptop every five minutes and shared with everyone. Sources include state election feeds and public AP panels; each district's source is listed in the table."),
         tags$p(class = "small-note", "The laptop must keep running. Fetch failures retain previous totals; data older than 15 minutes are labeled STALE. Preparation/test data remain excluded.")),
       conditionalPanel("input.mode == 'csv'", fileInput("upload", "Cumulative district totals (.csv)", accept = ".csv"),
         lab_download_button("template", "Download CSV template")),

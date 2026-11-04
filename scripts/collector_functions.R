@@ -1,6 +1,7 @@
 # Laptop-only helpers. These files are not part of the hosted runtime bundle.
 source("scripts/ky_import_functions.R")
 source("scripts/ky_ap_feed.R")
+source("scripts/oh_ap_feed.R")
 
 collector_json <- function(snapshot) paste0(jsonlite::toJSON(snapshot, auto_unbox = TRUE,
   dataframe = "rows", na = "null", null = "null", digits = NA, pretty = TRUE), "\n")
@@ -16,7 +17,7 @@ write_collector_snapshot <- function(snapshot, path) {
 
 collect_results <- function(previous = NULL, ky_file = NULL, interval = 300,
                             fetch = fetch_feed, clock = Sys.time, ky_dir = NULL,
-                            fetch_ky = NULL) {
+                            fetch_ky = NULL, fetch_oh = NULL) {
   if (sum(c(!is.null(ky_file), !is.null(ky_dir), !is.null(fetch_ky))) > 1L) {
     stop("Choose only one Kentucky source: --ky-ap, --ky-file, or --ky-dir.")
   }
@@ -67,9 +68,17 @@ collect_results <- function(previous = NULL, ky_file = NULL, interval = 300,
           stop("AP publication is older than the retained Kentucky totals.")
         }
       } else {
-        x <- validate_results(fetch(state))
+        x <- validate_results(if (state == "OH" && !is.null(fetch_oh)) fetch_oh() else fetch(state))
         expected <- watch_districts[substr(watch_districts, 1, 2) == state]
         if (!setequal(x$district_id, expected)) stop("Provider omitted an expected watchlist district.")
+        if (state == "OH" && !is.null(fetch_oh)) {
+          old <- results[match(x$district_id, results$district_id), , drop = FALSE]
+          same <- !is.na(old$source) & old$source == x$source & !is.na(old$source_updated_at)
+          if (any(same & (is.na(x$source_updated_at) |
+              collector_time(x$source_updated_at) < collector_time(old$source_updated_at)), na.rm = TRUE)) {
+            stop("AP publication is older than the retained Ohio totals.")
+          }
+        }
         stamp <- collector_stamp(clock())
         x$fetched_at <- stamp
       }

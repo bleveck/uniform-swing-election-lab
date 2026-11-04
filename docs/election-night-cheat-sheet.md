@@ -2,7 +2,7 @@
 
 **Tuesday, November 3, 2026 · Brad’s Mac**
 
-Your laptop collects Virginia, North Carolina, and Ohio returns plus KY-06 from AP's public WEKU panel, then publishes a shared file. Both apps read that file. Keep one collector running, with the laptop open, plugged in, and online.
+Your laptop collects Virginia and North Carolina from state feeds, plus KY-06 and four Ohio House races from public AP panels, then publishes a shared file. Both apps read that file. Keep one collector running, with the laptop open, plugged in, and online.
 
 ## 1. Open Terminal and go to the project
 
@@ -16,7 +16,7 @@ Run the commands below from this directory. You do not need to run the Shiny app
 
 ```sh
 gh auth status
-Rscript scripts/collect_results.R --once --publish --ky-ap
+Rscript scripts/collect_results.R --once --publish --ky-ap --oh-ap
 ```
 
 The second command fetches the states, saves a local copy, publishes it, and exits. Check **both** of these:
@@ -29,7 +29,7 @@ If GitHub authentication has expired, run `gh auth login`, complete the interact
 ## 3. Keep collecting
 
 ```sh
-caffeinate -i Rscript scripts/collect_results.R --watch --publish --ky-ap
+caffeinate -i Rscript scripts/collect_results.R --watch --publish --ky-ap --oh-ap
 ```
 
 This collects immediately, then waits **300 seconds** between rounds. Expect repeated provider statuses, `Published ...`, and `Next collection in 300 seconds.`
@@ -49,7 +49,7 @@ In either app:
 4. Click **Load latest shared snapshot**, or leave the one-minute update check enabled.
 5. Inspect the laptop collection time, each provider’s fetch time, provider publication timestamps, and the district table.
 
-All ten districts can arrive automatically with `--ky-ap`. KY-06 is attributed to **AP via WEKU**, with AP's publication clock; it is not a Kentucky SOS download. The model’s `n` counts qualifying districts: by default each needs at least **1,000 D+R votes**, must pass the test-data checks, and must not be excluded. In House-reference mode, changed-map exclusions can reduce `n` further.
+All ten districts can arrive automatically with `--ky-ap --oh-ap`. KY-06 is attributed to **AP via WEKU** and Ohio to **AP via Signal Ohio**, with AP's publication clocks. `--oh-ap` skips the Ohio SOS server, which returned HTTP 429 on election night. The model’s `n` counts qualifying districts: by default each needs at least **1,000 D+R votes**, must pass the test-data checks, and must not be excluded. In House-reference mode, changed-map exclusions can reduce `n` further.
 
 **Preparation safeguard:** snapshots collected before **3 p.m. Pacific / 6 p.m. Eastern on November 3** are excluded. Provider test flags also cause exclusion, including after that time. A successful fetch of zeros or test data is not an eligible election return.
 
@@ -58,6 +58,10 @@ All ten districts can arrive automatically with `--ky-ap`. KY-06 is attributed t
 Press **Control+C** in the collector’s Terminal window. Use Control, not Command.
 
 The last published snapshot stays available. It will be labeled stale as it ages; replay and historical examples continue working. To resume, run the command in step 3 again.
+
+## Switch Ohio to AP
+
+Stop the current collector with **Control+C**, then restart using the step 3 command with **both** `--ky-ap --oh-ap`. A running R process will not load the new code until restarted. No app redeployment is needed for new snapshot data. Omitting `--oh-ap` uses the original Ohio SOS XML feed. If any Ohio AP race fails validation or has an older publication than the retained AP totals, all four previous Ohio totals are retained and marked stale.
 
 ## Alternative Kentucky sources
 

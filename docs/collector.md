@@ -2,7 +2,7 @@
 
 For the short operational sequence on Brad’s Mac, see the [election-night cheat sheet](election-night-cheat-sheet.md).
 
-One instructor laptop fetches the official VA, NC, and OH feeds and, with `--ky-ap`, KY-06 from the public AP panel embedded by WEKU. It publishes one small public JSON snapshot to the separate [`codex/snapshots` branch](https://github.com/bleveck/uniform-swing-election-lab/tree/codex/snapshots). The hosted app reads that file instead of contacting the states from Posit. Data publications do not rebuild or redeploy the app.
+One instructor laptop fetches the official VA and NC feeds, with `--ky-ap` adding KY-06 from AP via WEKU and `--oh-ap` using AP for the four Ohio House races instead of Ohio SOS. It publishes one small public JSON snapshot to the separate [`codex/snapshots` branch](https://github.com/bleveck/uniform-swing-election-lab/tree/codex/snapshots). The hosted app reads that file instead of contacting the states from Posit. Data publications do not rebuild or redeploy the app.
 
 ## Start on election night
 
@@ -10,13 +10,13 @@ Open Terminal in the project directory. R and the app dependencies must be insta
 
 ```sh
 gh auth status
-Rscript scripts/collect_results.R --once --publish --ky-ap
+Rscript scripts/collect_results.R --once --publish --ky-ap --oh-ap
 ```
 
 That command collects and publishes one snapshot, then exits. Check the printed provider status. To keep collecting every five minutes on this Mac:
 
 ```sh
-caffeinate -i Rscript scripts/collect_results.R --watch --publish --ky-ap
+caffeinate -i Rscript scripts/collect_results.R --watch --publish --ky-ap --oh-ap
 ```
 
 Leave Terminal and the laptop open and connected to the internet. `caffeinate -i` prevents idle system sleep while the command runs; it does not make a closed laptop lid safe for collection. **Ctrl+C stops collection.** This setup creates no scheduled task, startup service, or background automation. It is stopped until you run the command.
@@ -32,6 +32,14 @@ The parser verifies the 2026 general election, U.S. House, Kentucky district 6, 
 A fetch/schema failure or older AP publication retains the previous KY totals with a stale/error status. AP may publish corrections, so a newer publication may legitimately revise counts downward. The normal preparation-data safeguard remains in force. These public widget resources are not a contracted AP feed, so availability/schema can change.
 
 Omit `--ky-ap` to fetch only the original nine districts. Any previously collected KY totals are retained and flagged stale when no Kentucky source is supplied. Choose exactly one Kentucky input: `--ky-ap`, `--ky-dir`, or `--ky-file`. Manual inputs remain available if needed; stop the existing collector before switching.
+
+## Ohio AP alternative
+
+`--oh-ap` reads OH-07, OH-09, OH-10, and OH-15 from the same public AP data service used for Kentucky, through the [Ohio House panel embedded by Signal Ohio](https://interactives.apelections.org/election-results/customers/layouts/organization-layouts/published/124546/35136.html). This skips Ohio SOS entirely. The SOS XML endpoint returned HTTP 429 on election night. Omit this flag to use the original SOS reader.
+
+The four general House race IDs were verified against AP's [Ohio metadata index](https://interactives.apelections.org/election-results/data-live/2026-11-03/results/races/OH/metadata.json). Each poll requests just these races' metadata and cumulative statewide summaries, with the same identity, party, test-flag, vote-count, and timestamp checks used for KY. Each row keeps its own AP publication time. Sources are labeled **AP via Signal Ohio public House panel**. Third parties, vote-method components, and county totals are not added to D/R totals.
+
+If any race fails or an AP publication regresses, the previous four-district Ohio snapshot and its clocks are retained with an error/stale status. A new publication may revise vote counts downward. Stop the existing collector with **Control+C** before restarting with `--ky-ap --oh-ap`; editing the files does not change a running R process.
 
 ## Alternative Kentucky XML import
 
@@ -82,7 +90,10 @@ GitHub delivery can add some caching delay. The reader uses a shared minute-base
 - `R/collector.R`: shared schema validation, public-file reader, freshness labels, and repository/URL configuration.
 - `scripts/collector_functions.R`: laptop fetch, local persistence, and GitHub publication helpers.
 - `scripts/collect_results.R`: one-shot and foreground polling commands.
-- `scripts/ky_ap_feed.R`: public WEKU/AP KY-06 reader and validation.
+- `scripts/ap_house_feed.R`: shared public AP House parser and validation.
+- `scripts/ky_ap_feed.R`: WEKU/AP KY-06 configuration.
+- `scripts/oh_ap_feed.R`: Signal Ohio/AP watchlist configuration.
+- `tests/test_oh_ap.R`: exact Ohio races and party totals, SOS bypass, and state-wide retention on failures.
 - `tests/test_ky_ap.R`: AP identity, cumulative totals, test flags, timestamps, and retention after errors.
 - `tests/test_collector.R`: preparation flags, outages, stale clocks, malformed data, KY entry times, publication conflicts, and Shiny integration.
 
