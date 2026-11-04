@@ -1,35 +1,35 @@
 {
   "schema_version": 1,
   "election_date": "2026-11-03",
-  "generated_at": "2026-11-04T03:55:44Z",
+  "generated_at": "2026-11-04T04:03:21Z",
   "poll_interval_seconds": 300,
   "providers": [
     {
       "provider": "VA",
       "status": "ok",
-      "last_attempt_at": "2026-11-04T03:55:42Z",
-      "last_success_at": "2026-11-04T03:55:43Z",
+      "last_attempt_at": "2026-11-04T04:03:19Z",
+      "last_success_at": "2026-11-04T04:03:19Z",
       "error": null
     },
     {
       "provider": "NC",
       "status": "ok",
-      "last_attempt_at": "2026-11-04T03:55:43Z",
-      "last_success_at": "2026-11-04T03:55:44Z",
+      "last_attempt_at": "2026-11-04T04:03:19Z",
+      "last_success_at": "2026-11-04T04:03:20Z",
       "error": null
     },
     {
       "provider": "OH",
       "status": "ok",
-      "last_attempt_at": "2026-11-04T03:55:44Z",
-      "last_success_at": "2026-11-04T03:55:44Z",
+      "last_attempt_at": "2026-11-04T04:03:20Z",
+      "last_success_at": "2026-11-04T04:03:21Z",
       "error": null
     },
     {
       "provider": "KY",
       "status": "ok",
-      "last_attempt_at": "2026-11-04T03:55:44Z",
-      "last_success_at": "2026-11-04T03:55:44Z",
+      "last_attempt_at": "2026-11-04T04:03:21Z",
+      "last_success_at": "2026-11-04T04:03:21Z",
       "error": null
     }
   ],
@@ -40,19 +40,19 @@
       "r_votes_current": 114030,
       "election_date": "2026-11-03",
       "source": "AP via WEKU public KY-06 panel",
-      "fetched_at": "2026-11-04T03:55:44Z",
-      "source_updated_at": "2026-11-04T03:46:17Z",
+      "fetched_at": "2026-11-04T04:03:21Z",
+      "source_updated_at": "2026-11-04T03:57:38Z",
       "is_test": false,
       "_row": "11"
     },
     {
       "district_id": "NC-01",
-      "d_votes_current": 147698,
-      "r_votes_current": 141554,
+      "d_votes_current": 148204,
+      "r_votes_current": 141873,
       "election_date": "2026-11-03",
       "source": "NC SBE precinct ZIP",
-      "fetched_at": "2026-11-04T03:55:44Z",
-      "source_updated_at": "Wed, 04 Nov 2026 03:55:09 GMT",
+      "fetched_at": "2026-11-04T04:03:20Z",
+      "source_updated_at": "Wed, 04 Nov 2026 04:01:55 GMT",
       "is_test": false,
       "_row": "NC-01"
     },
@@ -62,8 +62,8 @@
       "r_votes_current": 141427,
       "election_date": "2026-11-03",
       "source": "NC SBE precinct ZIP",
-      "fetched_at": "2026-11-04T03:55:44Z",
-      "source_updated_at": "Wed, 04 Nov 2026 03:55:09 GMT",
+      "fetched_at": "2026-11-04T04:03:20Z",
+      "source_updated_at": "Wed, 04 Nov 2026 04:01:55 GMT",
       "is_test": false,
       "_row": "NC-11"
     },
@@ -73,7 +73,7 @@
       "r_votes_current": 99348,
       "election_date": "2026-11-03",
       "source": "AP via Signal Ohio public House panel",
-      "fetched_at": "2026-11-04T03:55:44Z",
+      "fetched_at": "2026-11-04T04:03:21Z",
       "source_updated_at": "2026-11-04T03:52:59Z",
       "is_test": false,
       "_row": "OH-07"
@@ -84,7 +84,7 @@
       "r_votes_current": 88077,
       "election_date": "2026-11-03",
       "source": "AP via Signal Ohio public House panel",
-      "fetched_at": "2026-11-04T03:55:44Z",
+      "fetched_at": "2026-11-04T04:03:21Z",
       "source_updated_at": "2026-11-04T03:50:57Z",
       "is_test": false,
       "_row": "OH-09"
@@ -95,7 +95,7 @@
       "r_votes_current": 143327,
       "election_date": "2026-11-03",
       "source": "AP via Signal Ohio public House panel",
-      "fetched_at": "2026-11-04T03:55:44Z",
+      "fetched_at": "2026-11-04T04:03:21Z",
       "source_updated_at": "2026-11-04T03:55:28Z",
       "is_test": false,
       "_row": "OH-10"
@@ -106,41 +106,41 @@
       "r_votes_current": 127894,
       "election_date": "2026-11-03",
       "source": "AP via Signal Ohio public House panel",
-      "fetched_at": "2026-11-04T03:55:44Z",
+      "fetched_at": "2026-11-04T04:03:21Z",
       "source_updated_at": "2026-11-04T03:52:46Z",
       "is_test": false,
       "_row": "OH-15"
     },
     {
       "district_id": "VA-01",
-      "d_votes_current": 202588,
-      "r_votes_current": 194122,
+      "d_votes_current": 204866,
+      "r_votes_current": 197025,
       "election_date": "2026-11-03",
       "source": "VA ELECT media JSON",
-      "fetched_at": "2026-11-04T03:55:43Z",
-      "source_updated_at": "2026-11-04T03:54:58.1709294Z",
+      "fetched_at": "2026-11-04T04:03:19Z",
+      "source_updated_at": "2026-11-04T04:02:32.3880102Z",
       "is_test": false,
       "_row": "1"
     },
     {
       "district_id": "VA-02",
-      "d_votes_current": 152165,
-      "r_votes_current": 135275,
+      "d_votes_current": 152398,
+      "r_votes_current": 135694,
       "election_date": "2026-11-03",
       "source": "VA ELECT media JSON",
-      "fetched_at": "2026-11-04T03:55:43Z",
-      "source_updated_at": "2026-11-04T03:54:58.1709294Z",
+      "fetched_at": "2026-11-04T04:03:19Z",
+      "source_updated_at": "2026-11-04T04:02:32.3880102Z",
       "is_test": false,
       "_row": "2"
     },
     {
       "district_id": "VA-05",
-      "d_votes_current": 161621,
-      "r_votes_current": 159514,
+      "d_votes_current": 165372,
+      "r_votes_current": 168943,
       "election_date": "2026-11-03",
       "source": "VA ELECT media JSON",
-      "fetched_at": "2026-11-04T03:55:43Z",
-      "source_updated_at": "2026-11-04T03:54:58.1709294Z",
+      "fetched_at": "2026-11-04T04:03:19Z",
+      "source_updated_at": "2026-11-04T04:02:32.3880102Z",
       "is_test": false,
       "_row": "5"
     }
