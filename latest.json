@@ -1,35 +1,35 @@
 {
   "schema_version": 1,
   "election_date": "2026-11-03",
-  "generated_at": "2026-11-04T03:09:39Z",
+  "generated_at": "2026-11-04T03:14:15Z",
   "poll_interval_seconds": 300,
   "providers": [
     {
       "provider": "VA",
       "status": "ok",
-      "last_attempt_at": "2026-11-04T03:09:36Z",
-      "last_success_at": "2026-11-04T03:09:37Z",
+      "last_attempt_at": "2026-11-04T03:14:13Z",
+      "last_success_at": "2026-11-04T03:14:14Z",
       "error": null
     },
     {
       "provider": "NC",
       "status": "ok",
-      "last_attempt_at": "2026-11-04T03:09:37Z",
-      "last_success_at": "2026-11-04T03:09:38Z",
+      "last_attempt_at": "2026-11-04T03:14:14Z",
+      "last_success_at": "2026-11-04T03:14:15Z",
       "error": null
     },
     {
       "provider": "OH",
-      "status": "error",
-      "last_attempt_at": "2026-11-04T03:09:38Z",
-      "last_success_at": "2026-11-04T02:22:03Z",
-      "error": "Fetch or validation failed; previous totals retained if available."
+      "status": "ok",
+      "last_attempt_at": "2026-11-04T03:14:15Z",
+      "last_success_at": "2026-11-04T03:14:15Z",
+      "error": null
     },
     {
       "provider": "KY",
       "status": "ok",
-      "last_attempt_at": "2026-11-04T03:09:39Z",
-      "last_success_at": "2026-11-04T03:09:39Z",
+      "last_attempt_at": "2026-11-04T03:14:15Z",
+      "last_success_at": "2026-11-04T03:14:15Z",
       "error": null
     }
   ],
@@ -40,19 +40,19 @@
       "r_votes_current": 114030,
       "election_date": "2026-11-03",
       "source": "AP via WEKU public KY-06 panel",
-      "fetched_at": "2026-11-04T03:09:39Z",
-      "source_updated_at": "2026-11-04T03:08:57Z",
+      "fetched_at": "2026-11-04T03:14:15Z",
+      "source_updated_at": "2026-11-04T03:11:48Z",
       "is_test": false,
       "_row": "11"
     },
     {
       "district_id": "NC-01",
-      "d_votes_current": 136403,
-      "r_votes_current": 128435,
+      "d_votes_current": 136768,
+      "r_votes_current": 128709,
       "election_date": "2026-11-03",
       "source": "NC SBE precinct ZIP",
-      "fetched_at": "2026-11-04T03:09:38Z",
-      "source_updated_at": "Wed, 04 Nov 2026 03:02:51 GMT",
+      "fetched_at": "2026-11-04T03:14:15Z",
+      "source_updated_at": "Wed, 04 Nov 2026 03:11:11 GMT",
       "is_test": false,
       "_row": "NC-01"
     },
@@ -62,54 +62,54 @@
       "r_votes_current": 140121,
       "election_date": "2026-11-03",
       "source": "NC SBE precinct ZIP",
-      "fetched_at": "2026-11-04T03:09:38Z",
-      "source_updated_at": "Wed, 04 Nov 2026 03:02:51 GMT",
+      "fetched_at": "2026-11-04T03:14:15Z",
+      "source_updated_at": "Wed, 04 Nov 2026 03:11:11 GMT",
       "is_test": false,
       "_row": "NC-11"
     },
     {
       "district_id": "OH-07",
-      "d_votes_current": 94682,
-      "r_votes_current": 77487,
+      "d_votes_current": 103252,
+      "r_votes_current": 86879,
       "election_date": "2026-11-03",
-      "source": "OH SOS XML",
-      "fetched_at": "2026-11-04T02:22:03Z",
-      "source_updated_at": "2026-11-04T02:21:36Z",
+      "source": "AP via Signal Ohio public House panel",
+      "fetched_at": "2026-11-04T03:14:15Z",
+      "source_updated_at": "2026-11-04T03:12:41Z",
       "is_test": false,
-      "_row": "7"
+      "_row": "OH-07"
     },
     {
       "district_id": "OH-09",
-      "d_votes_current": 49095,
-      "r_votes_current": 71933,
+      "d_votes_current": 58735,
+      "r_votes_current": 86534,
       "election_date": "2026-11-03",
-      "source": "OH SOS XML",
-      "fetched_at": "2026-11-04T02:22:03Z",
-      "source_updated_at": "2026-11-04T02:21:36Z",
+      "source": "AP via Signal Ohio public House panel",
+      "fetched_at": "2026-11-04T03:14:15Z",
+      "source_updated_at": "2026-11-04T03:01:36Z",
       "is_test": false,
-      "_row": "9"
+      "_row": "OH-09"
     },
     {
       "district_id": "OH-10",
-      "d_votes_current": 97483,
-      "r_votes_current": 78418,
+      "d_votes_current": 118361,
+      "r_votes_current": 107908,
       "election_date": "2026-11-03",
-      "source": "OH SOS XML",
-      "fetched_at": "2026-11-04T02:22:03Z",
-      "source_updated_at": "2026-11-04T02:21:36Z",
+      "source": "AP via Signal Ohio public House panel",
+      "fetched_at": "2026-11-04T03:14:15Z",
+      "source_updated_at": "2026-11-04T03:13:36Z",
       "is_test": false,
-      "_row": "10"
+      "_row": "OH-10"
     },
     {
       "district_id": "OH-15",
-      "d_votes_current": 71607,
-      "r_votes_current": 58685,
+      "d_votes_current": 113446,
+      "r_votes_current": 107171,
       "election_date": "2026-11-03",
-      "source": "OH SOS XML",
-      "fetched_at": "2026-11-04T02:22:03Z",
-      "source_updated_at": "2026-11-04T02:21:36Z",
+      "source": "AP via Signal Ohio public House panel",
+      "fetched_at": "2026-11-04T03:14:15Z",
+      "source_updated_at": "2026-11-04T03:13:33Z",
       "is_test": false,
-      "_row": "15"
+      "_row": "OH-15"
     },
     {
       "district_id": "VA-01",
@@ -117,19 +117,19 @@
       "r_votes_current": 189586,
       "election_date": "2026-11-03",
       "source": "VA ELECT media JSON",
-      "fetched_at": "2026-11-04T03:09:37Z",
-      "source_updated_at": "2026-11-04T03:08:05.3378834Z",
+      "fetched_at": "2026-11-04T03:14:14Z",
+      "source_updated_at": "2026-11-04T03:12:23.4191582Z",
       "is_test": false,
       "_row": "1"
     },
     {
       "district_id": "VA-02",
-      "d_votes_current": 123715,
-      "r_votes_current": 108887,
+      "d_votes_current": 136890,
+      "r_votes_current": 120425,
       "election_date": "2026-11-03",
       "source": "VA ELECT media JSON",
-      "fetched_at": "2026-11-04T03:09:37Z",
-      "source_updated_at": "2026-11-04T03:08:05.3378834Z",
+      "fetched_at": "2026-11-04T03:14:14Z",
+      "source_updated_at": "2026-11-04T03:12:23.4191582Z",
       "is_test": false,
       "_row": "2"
     },
@@ -139,8 +139,8 @@
       "r_votes_current": 152107,
       "election_date": "2026-11-03",
       "source": "VA ELECT media JSON",
-      "fetched_at": "2026-11-04T03:09:37Z",
-      "source_updated_at": "2026-11-04T03:08:05.3378834Z",
+      "fetched_at": "2026-11-04T03:14:14Z",
+      "source_updated_at": "2026-11-04T03:12:23.4191582Z",
       "is_test": false,
       "_row": "5"
     }
