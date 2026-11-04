@@ -1,47 +1,47 @@
 {
   "schema_version": 1,
   "election_date": "2026-11-03",
-  "generated_at": "2026-11-04T02:52:27Z",
+  "generated_at": "2026-11-04T02:57:31Z",
   "poll_interval_seconds": 300,
   "providers": [
     {
       "provider": "VA",
       "status": "ok",
-      "last_attempt_at": "2026-11-04T02:52:25Z",
-      "last_success_at": "2026-11-04T02:52:26Z",
+      "last_attempt_at": "2026-11-04T02:57:29Z",
+      "last_success_at": "2026-11-04T02:57:30Z",
       "error": null
     },
     {
       "provider": "NC",
       "status": "ok",
-      "last_attempt_at": "2026-11-04T02:52:26Z",
-      "last_success_at": "2026-11-04T02:52:27Z",
+      "last_attempt_at": "2026-11-04T02:57:30Z",
+      "last_success_at": "2026-11-04T02:57:31Z",
       "error": null
     },
     {
       "provider": "OH",
       "status": "error",
-      "last_attempt_at": "2026-11-04T02:52:27Z",
+      "last_attempt_at": "2026-11-04T02:57:31Z",
       "last_success_at": "2026-11-04T02:22:03Z",
       "error": "Fetch or validation failed; previous totals retained if available."
     },
     {
       "provider": "KY",
       "status": "ok",
-      "last_attempt_at": "2026-11-04T02:52:27Z",
-      "last_success_at": "2026-11-04T02:52:27Z",
+      "last_attempt_at": "2026-11-04T02:57:31Z",
+      "last_success_at": "2026-11-04T02:57:31Z",
       "error": null
     }
   ],
   "results": [
     {
       "district_id": "KY-06",
-      "d_votes_current": 129966,
-      "r_votes_current": 111821,
+      "d_votes_current": 138777,
+      "r_votes_current": 114030,
       "election_date": "2026-11-03",
       "source": "AP via WEKU public KY-06 panel",
-      "fetched_at": "2026-11-04T02:52:27Z",
-      "source_updated_at": "2026-11-04T02:50:57Z",
+      "fetched_at": "2026-11-04T02:57:31Z",
+      "source_updated_at": "2026-11-04T02:57:06Z",
       "is_test": false,
       "_row": "11"
     },
@@ -51,7 +51,7 @@
       "r_votes_current": 119645,
       "election_date": "2026-11-03",
       "source": "NC SBE precinct ZIP",
-      "fetched_at": "2026-11-04T02:52:27Z",
+      "fetched_at": "2026-11-04T02:57:31Z",
       "source_updated_at": "Wed, 04 Nov 2026 02:51:35 GMT",
       "is_test": false,
       "_row": "NC-01"
@@ -62,7 +62,7 @@
       "r_votes_current": 140121,
       "election_date": "2026-11-03",
       "source": "NC SBE precinct ZIP",
-      "fetched_at": "2026-11-04T02:52:27Z",
+      "fetched_at": "2026-11-04T02:57:31Z",
       "source_updated_at": "Wed, 04 Nov 2026 02:51:35 GMT",
       "is_test": false,
       "_row": "NC-11"
@@ -113,34 +113,34 @@
     },
     {
       "district_id": "VA-01",
-      "d_votes_current": 191152,
-      "r_votes_current": 188468,
+      "d_votes_current": 194368,
+      "r_votes_current": 189586,
       "election_date": "2026-11-03",
       "source": "VA ELECT media JSON",
-      "fetched_at": "2026-11-04T02:52:26Z",
-      "source_updated_at": "2026-11-04T02:50:59.5749568Z",
+      "fetched_at": "2026-11-04T02:57:30Z",
+      "source_updated_at": "2026-11-04T02:57:05.7343496Z",
       "is_test": false,
       "_row": "1"
     },
     {
       "district_id": "VA-02",
-      "d_votes_current": 122340,
-      "r_votes_current": 107106,
+      "d_votes_current": 122864,
+      "r_votes_current": 107492,
       "election_date": "2026-11-03",
       "source": "VA ELECT media JSON",
-      "fetched_at": "2026-11-04T02:52:26Z",
-      "source_updated_at": "2026-11-04T02:50:59.5749568Z",
+      "fetched_at": "2026-11-04T02:57:30Z",
+      "source_updated_at": "2026-11-04T02:57:05.7343496Z",
       "is_test": false,
       "_row": "2"
     },
     {
       "district_id": "VA-05",
-      "d_votes_current": 145106,
-      "r_votes_current": 143374,
+      "d_votes_current": 152630,
+      "r_votes_current": 147955,
       "election_date": "2026-11-03",
       "source": "VA ELECT media JSON",
-      "fetched_at": "2026-11-04T02:52:26Z",
-      "source_updated_at": "2026-11-04T02:50:59.5749568Z",
+      "fetched_at": "2026-11-04T02:57:30Z",
+      "source_updated_at": "2026-11-04T02:57:05.7343496Z",
       "is_test": false,
       "_row": "5"
     }
