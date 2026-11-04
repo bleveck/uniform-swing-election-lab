@@ -18,7 +18,10 @@ parse_nc <- function(path, expected_date = "2026-11-03") {
     con <- unz(path, file, open = "r")
     on.exit(close(con))
   } else con <- path
-  x <- read.delim(con, check.names = FALSE, quote = "", stringsAsFactors = FALSE, fill = TRUE)
+  # NC's live export includes NUL bytes in some party/candidate text fields.
+  # Skip those bytes explicitly; tabs still delimit the original fields.
+  x <- read.delim(con, check.names = FALSE, quote = "", stringsAsFactors = FALSE,
+    fill = TRUE, skipNul = TRUE)
   needed <- c("County", "Precinct", "Contest Name", "Choice", "Choice Party", "Total Votes", "Election Date")
   if (!all(needed %in% names(x))) stop("NC schema changed: required columns missing.")
   house <- grepl("^US HOUSE OF REPRESENTATIVES DISTRICT [0-9]+$", trimws(x[["Contest Name"]]))
@@ -94,8 +97,23 @@ parse_oh <- function(path, expected_date = "2026-11-03") {
   })
   out <- do.call(rbind, rows); out$source <- "OH SOS XML"
   out$source_updated_at <- xml2::xml_attr(doc, "GeneratedDate")
-  out$is_test <- tolower(xml2::xml_attr(doc, "IsTest")) == "true"
-  if (anyNA(out$is_test)) stop("Ohio feed missing test-data flag.")
+  flag <- xml2::xml_attr(doc, "IsTest")
+  if (is.na(flag)) {
+    # The live election-night export omits IsTest and supplies NIST Status instead.
+    # Accept only explicit results statuses; missing/unknown/test statuses fail closed.
+    status <- xml2::xml_attr(doc, "Status")
+    if (is.na(status) || !status %in% c("UnofficialPartial", "UnofficialComplete", "Official")) {
+      stop("Ohio feed missing test-data flag and recognized results status.")
+    }
+    out$is_test <- FALSE
+  } else {
+    if (!tolower(flag) %in% c("true", "false")) stop("Invalid Ohio test-data flag.")
+    out$is_test <- tolower(flag) == "true"
+  }
+  notes <- paste(xml2::xml_text(xml2::xml_find_all(doc, "./n:Notes", ns)), collapse = " ")
+  if (grepl("\\bmock\\b|\\btest[- ]?(data|elections?|results)\\b", notes, ignore.case = TRUE, perl = TRUE)) {
+    out$is_test <- TRUE
+  }
   validate_results(out, expected_date)
 }
 

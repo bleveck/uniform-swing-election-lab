@@ -83,6 +83,22 @@ test_that("NC real precinct returns reproduce the certified district total", {
   expect_error(parse_nc("data/fixtures/nc2024_house01.tsv"), "Wrong NC election")
 })
 
+test_that("NC text-field NUL bytes do not warn or discard subsequent district records", {
+  f <- tempfile(fileext = ".tsv"); on.exit(unlink(f))
+  before <- paste0("County\tElection Date\tPrecinct\tContest Name\tChoice\tChoice Party\tTotal Votes\n",
+    "EXAMPLE\t11/03/2026\tP01\tUS HOUSE OF REPRESENTATIVES DISTRICT 01\tDemocrat\tDEM\t123\n",
+    "EXAMPLE\t11/03/2026\tP01\tUS HOUSE OF REPRESENTATIVES DISTRICT 01\tRepublican\tREP\t456\n",
+    "EXAMPLE\t11/03/2026\tP01\tLOCAL SOIL AND WATER\tWrite-In\t")
+  after <- paste0("\t7\n",
+    "EXAMPLE\t11/03/2026\tP02\tUS HOUSE OF REPRESENTATIVES DISTRICT 01\tDemocrat\tDEM\t23\n",
+    "EXAMPLE\t11/03/2026\tP02\tUS HOUSE OF REPRESENTATIVES DISTRICT 01\tRepublican\tREP\t45\n")
+  writeBin(c(charToRaw(before), as.raw(0), charToRaw(after)), f)
+  expect_silent(x <- parse_nc(f))
+  expect_equal(x$district_id, "NC-01")
+  expect_equal(x$d_votes_current, 146)
+  expect_equal(x$r_votes_current, 501)
+})
+
 test_that("VA reads statewide totals only, not breakdowns or child localities", {
   va <- parse_va("data/fixtures/va2026_pre_election.json")
   expect_equal(nrow(va), 11L)
@@ -112,6 +128,35 @@ test_that("Ohio excludes mocks and never adds county totals to district totals",
   x <- parse_oh(f)
   row <- x[x$district_id == "OH-01", ]
   expect_equal(row$d_votes_current + row$r_votes_current, 100) # not 400
+})
+
+test_that("Ohio's election-night Status replaces an absent test flag without accepting unknown status", {
+  file <- tempfile(fileext = ".xml"); on.exit(unlink(file))
+  original <- paste(readLines("data/fixtures/oh2026_mock.xml", warn = FALSE), collapse = "\n")
+  original <- sub(' IsTest="true"', "", original, fixed = TRUE)
+  original <- sub(' Status="[^"]*"', "", original)
+  original <- gsub("(?s)<(?:[[:alnum:]_]+:)?Notes>.*?</(?:[[:alnum:]_]+:)?Notes>", "", original, perl = TRUE)
+  root <- regmatches(original, regexpr("<(?:[[:alnum:]_]+:)?ElectionReport", original, perl = TRUE))
+  write_variant <- function(status = NULL, flag = NULL, notes = NULL) {
+    attributes <- paste0(if (!is.null(status)) paste0(' Status="', status, '"'),
+      if (!is.null(flag)) paste0(' IsTest="', flag, '"'))
+    text <- sub(root, paste0(root, attributes), original, fixed = TRUE)
+    if (!is.null(notes)) text <- sub("</ns0:ElectionReport>", paste0("<ns0:Notes>", notes,
+      "</ns0:Notes></ns0:ElectionReport>"), text, fixed = TRUE)
+    writeLines(text, file)
+  }
+  write_variant("UnofficialPartial")
+  expect_false(any(parse_oh(file)$is_test))
+  write_variant("Test")
+  expect_error(parse_oh(file), "recognized results status")
+  write_variant()
+  expect_error(parse_oh(file), "test-data flag")
+  write_variant(flag = "perhaps")
+  expect_error(parse_oh(file), "Invalid Ohio")
+  write_variant("UnofficialPartial", "true")
+  expect_true(all(parse_oh(file)$is_test))
+  write_variant("UnofficialPartial", notes = "Results of mock elections")
+  expect_true(all(parse_oh(file)$is_test))
 })
 
 test_that("Shiny server handles replay, exclusions, no data, and baseline changes", {
@@ -160,5 +205,6 @@ source("tests/test_ca13.R")
 source("tests/test_presidential.R")
 source("tests/test_collector.R")
 source("tests/test_ky_import.R")
+source("tests/test_ky_ap.R")
 source("tests/test_shinylive.R")
 cat("\nAll model, historical prior, Bayesian update, presidential reference, introduction, CA-13 history, feed, collector, and Shiny tests passed.\n")

@@ -1,5 +1,6 @@
 # Laptop-only helpers. These files are not part of the hosted runtime bundle.
 source("scripts/ky_import_functions.R")
+source("scripts/ky_ap_feed.R")
 
 collector_json <- function(snapshot) paste0(jsonlite::toJSON(snapshot, auto_unbox = TRUE,
   dataframe = "rows", na = "null", null = "null", digits = NA, pretty = TRUE), "\n")
@@ -14,8 +15,11 @@ write_collector_snapshot <- function(snapshot, path) {
 }
 
 collect_results <- function(previous = NULL, ky_file = NULL, interval = 300,
-                            fetch = fetch_feed, clock = Sys.time, ky_dir = NULL) {
-  if (!is.null(ky_file) && !is.null(ky_dir)) stop("Choose --ky-file or --ky-dir, not both.")
+                            fetch = fetch_feed, clock = Sys.time, ky_dir = NULL,
+                            fetch_ky = NULL) {
+  if (sum(c(!is.null(ky_file), !is.null(ky_dir), !is.null(fetch_ky))) > 1L) {
+    stop("Choose only one Kentucky source: --ky-ap, --ky-file, or --ky-dir.")
+  }
   now <- clock()
   if (!is.null(previous)) previous <- validate_collector_snapshot(previous, now)
   results <- if (is.null(previous)) empty_results() else previous$results
@@ -25,7 +29,7 @@ collect_results <- function(previous = NULL, ky_file = NULL, interval = 300,
   for (state in providers$provider) {
     i <- match(state, providers$provider)
     providers$last_attempt_at[i] <- collector_stamp(clock())
-    if (state == "KY" && is.null(ky_file) && is.null(ky_dir)) {
+    if (state == "KY" && is.null(ky_file) && is.null(ky_dir) && is.null(fetch_ky)) {
       if (any(substr(results$district_id, 1, 2) == "KY")) {
         providers$status[i] <- "error"
         providers$error[i] <- "Manual file not supplied; previous entry retained."
@@ -37,7 +41,12 @@ collect_results <- function(previous = NULL, ky_file = NULL, interval = 300,
     }
     tryCatch({
       if (state == "KY") {
-        if (!is.null(ky_dir)) {
+        if (!is.null(fetch_ky)) {
+          x <- validate_results(fetch_ky())
+          if (nrow(x) != 1L || x$district_id != "KY-06") stop("AP reader must return exactly KY-06.")
+          stamp <- collector_stamp(clock())
+          x$fetched_at <- stamp
+        } else if (!is.null(ky_dir)) {
           x <- import_ky_downloads(ky_dir, now = clock())$results
           stamp <- x$fetched_at
         } else {
@@ -51,6 +60,11 @@ collect_results <- function(previous = NULL, ky_file = NULL, interval = 300,
         old_ky <- results[results$district_id == "KY-06", , drop = FALSE]
         if (nrow(old_ky) && collector_time(old_ky$fetched_at) > collector_time(stamp)) {
           stop("Kentucky input is older than the retained snapshot.")
+        }
+        if (!is.null(fetch_ky) && nrow(old_ky) &&
+            identical(old_ky$source, x$source) && !is.na(old_ky$source_updated_at) &&
+            collector_time(x$source_updated_at) < collector_time(old_ky$source_updated_at)) {
+          stop("AP publication is older than the retained Kentucky totals.")
         }
       } else {
         x <- validate_results(fetch(state))

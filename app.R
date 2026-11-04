@@ -30,7 +30,7 @@ panel <- function(title, subtitle = NULL, ...) tags$section(class = "panel-card"
 
 browser_runtime <- isTRUE(getOption("election_lab.browser", FALSE))
 results_choices <- c("Synthetic replay" = "replay", "Shared laptop snapshots" = "collector",
-  if (!browser_runtime) c("Official live feeds" = "live"), "Upload a CSV" = "csv")
+  "Upload a CSV" = "csv")
 
 ui <- fluidPage(
   title = "Election-night lab",
@@ -63,15 +63,10 @@ ui <- fluidPage(
         tags$p(class = "small-note baseline-note", "Each reference has its own fitted prior: House-minus-president performance or House-to-House swing."),
         sliderInput("prior_scale", "Prior SD multiplier", min = .5, max = 3, value = 1, step = .25),
         tags$p(class = "small-note", "District swings are assumed independent conditional on the common swing. Explore the Bayesian update tab.")),
-      conditionalPanel("input.mode == 'live'",
-        actionButton("refresh", "Fetch official snapshots", class = "btn-primary"),
-        checkboxInput("auto", "Refresh every 5 minutes", FALSE),
-        tags$p(class = "small-note", "VA JSON · NC ZIP · OH XML. Before Nov 3 at 6 p.m. ET, feed totals are excluded as preparation data. KY uses the CSV fallback."),
-        fileInput("manual_live", "Optional KY-06 snapshot (CSV)", accept = ".csv")),
       conditionalPanel("input.mode == 'collector'",
         actionButton("refresh_collector", "Load latest shared snapshot", class = "btn-primary"),
         checkboxInput("auto_collector", "Check for updates every minute", TRUE),
-        tags$p(class = "small-note", "One instructor laptop collects VA, NC, and OH every five minutes. Everyone reads the same shared file. KY-06 appears when the instructor supplies a manual entry."),
+        tags$p(class = "small-note", "Returns are collected on the instructor's laptop every five minutes and shared with everyone. VA, NC, and OH use state election feeds; KY-06 uses AP results via WEKU."),
         tags$p(class = "small-note", "The laptop must keep running. Fetch failures retain previous totals; data older than 15 minutes are labeled STALE. Preparation/test data remain excluded.")),
       conditionalPanel("input.mode == 'csv'", fileInput("upload", "Cumulative district totals (.csv)", accept = ".csv"),
         lab_download_button("template", "Download CSV template")),

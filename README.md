@@ -41,6 +41,7 @@ The final presidential-reference snapshot gives approximately **D +3.00 percenta
 - Working official-feed readers for **Virginia JSON, North Carolina ZIP/TSV, and Ohio XML**.
 - A manual CSV fallback, including a KY-06 supplement in live mode.
 - A [Kentucky XML importer](docs/kentucky-import.md) for manually saved official downloads, integrated with the laptop collector.
+- An optional laptop-only **KY-06 AP reader**, using the public results panel embedded by WEKU (`--ky-ap`).
 - Individual district changes, the average, a swing-to-seats curve, a 435-seat graphic, inclusion decisions, and downloadable calculations.
 - Two explicit baselines: **2024 House on the old map**, or **2024 president on the 2026 map**.
 - An optional **Bayesian Normal-prior estimate**, fitted to historical midterms, with raw/prior/posterior comparisons and analytic arithmetic.
@@ -53,19 +54,17 @@ Only House races enter the estimator. The Senate and governor contests in the re
 
 For election-night startup, Kentucky entry, stopping, and troubleshooting, use the [laptop collector cheat sheet](docs/election-night-cheat-sheet.md).
 
-For the hosted version, use **Shared laptop snapshots**. The [laptop collector](docs/collector.md) fetches VA, NC, and OH once every five minutes and publishes one public snapshot for everyone. The app checks that file every minute, displays source/collection clocks, and flags stale data. KY-06 can be supplied through [manually downloaded XML](docs/kentucky-import.md) or a hand-entered CSV. It runs only when the instructor starts it; no scheduler or background service is installed.
+For the hosted version, use **Shared laptop snapshots**. The [laptop collector](docs/collector.md) fetches VA, NC, and OH once every five minutes and publishes one public snapshot for everyone. Add `--ky-ap` to include KY-06 from AP's public WEKU panel, with AP attribution and publication timestamps. The app checks the shared file every minute and flags stale data. KY-06 can alternatively use [manually downloaded XML](docs/kentucky-import.md) or a hand-entered CSV. It runs only when the instructor starts it; no scheduler or background service is installed.
 
 ```sh
-Rscript scripts/collect_results.R --once --publish
+Rscript scripts/collect_results.R --once --publish --ky-ap
 # On this Mac, keep collecting until Ctrl+C:
-caffeinate -i Rscript scripts/collect_results.R --watch --publish
+caffeinate -i Rscript scripts/collect_results.R --watch --publish --ky-ap
 ```
 
 Data updates go to the separate `codex/snapshots` branch and do not trigger app deployment. The shared-file reader uses a basic GET used by both the Posit and Shinylive versions. Historical charts and synthetic replay remain available without a running collector.
 
-**Direct official-feed mode:**
-
-Select **Official live feeds**, then **Fetch official snapshots**. Automatic refresh is optional and runs every five minutes while live mode is selected. Fetches are per Shiny session; use one classroom session rather than giving every student an automatically polling session.
+The classroom interface offers **Synthetic replay**, **Shared laptop snapshots**, and **Upload a CSV**. Direct state fetching runs on the instructor's laptop; students use the shared snapshots for incoming returns.
 
 As checked **October 27, 2026**, Virginia and North Carolina publish zero-vote preparation files, Ohio explicitly marks its XML as mock data, and Kentucky's public reporting page is under maintenance. Before **November 3 at 6 p.m. Eastern**, the live-fetch layer marks all provider snapshots as preparation data. It also honors Ohio's provider test flag after that time. No real 2026 general-election returns are available yet.
 

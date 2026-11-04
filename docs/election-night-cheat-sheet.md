@@ -2,7 +2,7 @@
 
 **Tuesday, November 3, 2026 · Brad’s Mac**
 
-Your laptop collects Virginia, North Carolina, and Ohio returns and publishes a shared file. Both apps read that file. Keep one collector running, with the laptop open, plugged in, and online.
+Your laptop collects Virginia, North Carolina, and Ohio returns plus KY-06 from AP's public WEKU panel, then publishes a shared file. Both apps read that file. Keep one collector running, with the laptop open, plugged in, and online.
 
 ## 1. Open Terminal and go to the project
 
@@ -16,20 +16,20 @@ Run the commands below from this directory. You do not need to run the Shiny app
 
 ```sh
 gh auth status
-Rscript scripts/collect_results.R --once --publish
+Rscript scripts/collect_results.R --once --publish --ky-ap
 ```
 
 The second command fetches the states, saves a local copy, publishes it, and exits. Check **both** of these:
 
 - The terminal reports `Published ...` with a commit ID and the shared-file URL.
-- The provider lines show VA with **3 districts**, NC with **2**, and OH with **4**. Check for errors or stale data separately: successful publication can include a provider’s retained older totals.
+- The provider lines show VA with **3 districts**, NC with **2**, OH with **4**, and KY with **1**. Check for errors or stale data separately: successful publication can include a provider’s retained older totals.
 
 If GitHub authentication has expired, run `gh auth login`, complete the interactive sign-in, then retry. The account needs write access to `bleveck/uniform-swing-election-lab`.
 
 ## 3. Keep collecting
 
 ```sh
-caffeinate -i Rscript scripts/collect_results.R --watch --publish
+caffeinate -i Rscript scripts/collect_results.R --watch --publish --ky-ap
 ```
 
 This collects immediately, then waits **300 seconds** between rounds. Expect repeated provider statuses, `Published ...`, and `Next collection in 300 seconds.`
@@ -49,7 +49,7 @@ In either app:
 4. Click **Load latest shared snapshot**, or leave the one-minute update check enabled.
 5. Inspect the laptop collection time, each provider’s fetch time, provider publication timestamps, and the district table.
 
-Nine districts arrive automatically. KY-06 can use manually downloaded XML or hand-entered totals. The model’s `n` counts qualifying districts: by default each needs at least **1,000 D+R votes**, must pass the test-data checks, and must not be excluded. In House-reference mode, changed-map exclusions can reduce `n` further.
+All ten districts can arrive automatically with `--ky-ap`. KY-06 is attributed to **AP via WEKU**, with AP's publication clock; it is not a Kentucky SOS download. The model’s `n` counts qualifying districts: by default each needs at least **1,000 D+R votes**, must pass the test-data checks, and must not be excluded. In House-reference mode, changed-map exclusions can reduce `n` further.
 
 **Preparation safeguard:** snapshots collected before **3 p.m. Pacific / 6 p.m. Eastern on November 3** are excluded. Provider test flags also cause exclusion, including after that time. A successful fetch of zeros or test data is not an eligible election return.
 
@@ -59,7 +59,11 @@ Press **Control+C** in the collector’s Terminal window. Use Control, not Comma
 
 The last published snapshot stays available. It will be labeled stale as it ages; replay and historical examples continue working. To resume, run the command in step 3 again.
 
-## Optional: add KY-06
+## Alternative Kentucky sources
+
+The recommended command above uses the [public AP panel embedded by WEKU](https://interactives.apelections.org/election-results/customers/layouts/organization-layouts/published/74947/40992.html). It requests only that race's metadata and cumulative statewide totals every five minutes. If AP cannot be fetched or validated, the last good KY totals are retained and flagged stale. Omitting `--ky-ap` leaves the original nine automatic districts.
+
+Use only one of `--ky-ap`, `--ky-dir`, or `--ky-file`. To change sources, stop the running collector with **Control+C** and restart with the desired option.
 
 ### Import downloaded XML
 

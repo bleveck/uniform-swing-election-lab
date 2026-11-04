@@ -181,5 +181,5 @@ test_that("collector imports Kentucky locally and retains it when subsequent fil
   rownames(first_ky) <- rownames(second_ky) <- NULL
   expect_equal(second_ky, first_ky)
   expect_true(all(second$providers$status[second$providers$provider != "KY"] == "ok"))
-  expect_error(collect_results(ky_file = "x.csv", ky_dir = folder), "Choose --ky-file or --ky-dir")
+  expect_error(collect_results(ky_file = "x.csv", ky_dir = folder), "one Kentucky source")
 })

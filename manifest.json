@@ -1486,7 +1486,7 @@
   },
   "files": {
     "app.R": {
-      "checksum": "1be5709655e8fc56858e25d41c448ac2"
+      "checksum": "76c94179d29435c07b460b9dbab6d4ac"
     },
     "data/ca13_2024_returns.csv": {
       "checksum": "2754cbab1aa35dd239a61f063e4bef9f"
@@ -1528,7 +1528,7 @@
       "checksum": "ac1f71bee13856293fd629f32334102c"
     },
     "R/feeds.R": {
-      "checksum": "0d9bd12e320108228ad03683598d89ff"
+      "checksum": "b46d9598378dcda98bc97313121e7910"
     },
     "R/historical_returns.R": {
       "checksum": "e76f32ef8426d644b20251a78077d4f2"
